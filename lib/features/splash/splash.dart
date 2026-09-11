@@ -57,7 +57,7 @@ class _SplashViewState extends State<SplashView>
     Future.delayed(const Duration(milliseconds: 3500), () {
       if (mounted) {
         //! Replace with your app's target main/home screen
-        context.push(Routes.main);
+        context.push(Routes.login);
       }
     });
   }

@@ -1,3 +1,4 @@
+import 'package:cookjar/core/utils/assets/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
@@ -19,19 +20,7 @@ class LoginHeader extends StatelessWidget {
       child: Column(
         children: [
           // Logo
-          Container(
-            width: 78,
-            height: 78,
-            decoration: BoxDecoration(
-              color: Colors.white.withOpacity(.15),
-              borderRadius: BorderRadius.circular(24),
-            ),
-            child: const Icon(
-              Icons.soup_kitchen_outlined,
-              size: 52,
-              color: Colors.white,
-            ),
-          ),
+    Image.asset(AppImages.logo , width: 150) ,
 
           const Gap(16),
 

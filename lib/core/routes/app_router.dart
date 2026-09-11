@@ -1,3 +1,4 @@
+import 'package:cookjar/features/auth/presentation/login/view/login_view.dart';
 import 'package:cookjar/features/main/presentation/view/main_view.dart';
 import 'package:cookjar/features/splash/splash.dart';
 import 'package:flutter/material.dart';
@@ -20,7 +21,16 @@ class AppRouter {
       ),
 
       //* Login view
-      // GoRoute(
+      GoRoute(
+        path: Routes.login,
+        builder: (context, state) => LoginView(),
+        ),
+      
+      
+
+
+
+        // GoRoute(
       //   path: Routes.login,
       //   builder: (context, state) => BlocProvider(
       //     create: (context) => getIt<LoginCubit>(),
