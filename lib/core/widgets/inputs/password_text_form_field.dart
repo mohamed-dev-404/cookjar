@@ -47,7 +47,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
             path: obscureText ? AppIcons.eyeOffSvg : AppIcons.eyeSvg,
             width: 20,
             height: 20,
-            color: AppColors.textSecondaryNormal,
+            color: AppColors.darkBrown,
           ),
         ),
       ),
@@ -64,7 +64,7 @@ class _PasswordTextFormFieldState extends State<PasswordTextFormField> {
       children: [
         Text(
           widget.label!,
-          style: AppStyles.bold15.copyWith(color: AppColors.primary),
+          style: AppStyles.bold15.copyWith(color: AppColors.warmCoral),
         ),
         const Gap(8),
         field,

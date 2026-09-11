@@ -1,3 +1,5 @@
+import 'package:cookjar/features/main/presentation/view/main_view.dart';
+import 'package:cookjar/features/splash/splash.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cookjar/core/routes/routes.dart';
@@ -9,16 +11,13 @@ class AppRouter {
       GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: Routes.login,
+    initialLocation: Routes.splash,
     routes: [
       //* Splash view
-      // GoRoute(
-      //   path: Routes.splash,
-      //   builder: (context, state) => BlocProvider(
-      //     create: (context) => getIt<SplashCubit>()..getInitData(),
-      //     child: const SplashView(),
-      //   ),
-      // ),
+      GoRoute(
+        path: Routes.splash,
+        builder: (context, state) => const SplashView(),
+      ),
 
       //* Login view
       // GoRoute(
@@ -48,16 +47,10 @@ class AppRouter {
       // ),
 
       // * Main view
-      // GoRoute(
-      //   path: Routes.main,
-      //   builder: (context, state) => const MainAppView(),
-      // ),
-
-      // * Profile view
-      // GoRoute(
-      //   path: Routes.profile,
-      //   builder: (context, state) => const ProfileView(),
-      // ),
+      GoRoute(
+        path: Routes.main,
+        builder: (context, state) => const MainAppView(),
+      ),
     ],
   );
 }

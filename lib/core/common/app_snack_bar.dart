@@ -33,19 +33,19 @@ class AppSnackBar {
     ///* Resolve style based on SnackBar type
     switch (type) {
       case SnackBarType.error:
-        color = AppColors.errorNormal;
+        color = AppColors.error;
         icon = Icons.error_outline;
         break;
       case SnackBarType.warning:
-        color = AppColors.warningNormal;
+        color = AppColors.warning;
         icon = Icons.warning_amber_rounded;
         break;
       case SnackBarType.info:
-        color = AppColors.accent;
+        color = AppColors.info;
         icon = Icons.info_outline;
         break;
       case SnackBarType.success:
-        color = AppColors.successNormal;
+        color = AppColors.success;
         icon = Icons.check_circle_outline;
         break;
     }

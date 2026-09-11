@@ -7,16 +7,18 @@ class MainButton extends StatelessWidget {
     super.key,
     required this.text,
     required this.onPressed,
-    this.bgColor = AppColors.primary,
+    this.bgColor = AppColors.warmCoral,
     this.borderColor,
     this.minWidth = double.infinity,
-    this.minHeight = 56,
-    this.textColor = AppColors.backgroundNormal,
+    this.minHeight = 55,
+    this.textColor = AppColors.white,
     this.isLoading = false,
+    this.disabledBgColor = AppColors.borderGray,
   });
   final String text;
   final VoidCallback? onPressed;
   final Color bgColor;
+  final Color disabledBgColor;
   final Color? borderColor;
   final double minWidth;
   final double minHeight;
@@ -30,11 +32,10 @@ class MainButton extends StatelessWidget {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
         backgroundColor: bgColor,
-        disabledBackgroundColor: bgColor,
+        disabledBackgroundColor: disabledBgColor,
         padding: EdgeInsets.zero,
         maximumSize: Size(minWidth, minHeight),
         minimumSize: Size(minWidth, minHeight),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
         side: borderColor != null ? BorderSide(color: borderColor!) : null,
       ),
       onPressed: isLoading ? null : onPressed,
@@ -47,7 +48,8 @@ class MainButton extends StatelessWidget {
                 color: textColor,
               ),
             )
-          : Text(text, style: AppStyles.bold14.copyWith(color: textColor)),
+          //todo: text hint style
+          : Text(text, style: AppStyles.bold15.copyWith(color: textColor)),
     );
   }
 }

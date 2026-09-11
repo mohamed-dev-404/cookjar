@@ -12,7 +12,7 @@ class CookJar extends StatelessWidget {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
       routerConfig: AppRouter.router,
-      theme: AppThemes.lightTheme,
+      theme: AppTheme.lightTheme,
       themeMode: ThemeMode.light,
       builder: (context, child) {
         return MediaQuery(

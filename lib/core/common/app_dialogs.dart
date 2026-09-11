@@ -1,7 +1,7 @@
 import 'package:cookjar/core/utils/colors/app_colors.dart';
-import 'package:flutter/material.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:cookjar/core/widgets/animated_loading_widget.dart';
+import 'package:flutter/material.dart';
 
 /// AppDialogs
 ///
@@ -14,7 +14,7 @@ class AppDialogs {
     showDialog(
       context: context,
       barrierDismissible: false,
-      barrierColor: AppColors.backgroundDark.withValues(alpha: 0.7),
+      barrierColor: const Color(0xdefefefe),
       builder: (context) => const AnimatedLoadingWidget(),
     );
   }
@@ -71,12 +71,12 @@ class AppDialogs {
     void Function()? onTap,
     void Function()? onNoTap,
   }) {
-    // Resolve the icon color — defaults to secondary (teal).
-    final resolvedIconColor = iconColor ?? AppColors.secondary;
+    // Resolve the icon color — defaults to secondary.
+    final resolvedIconColor = iconColor ?? AppColors.lightHoney;
 
     showDialog(
       context: context,
-      barrierColor: AppColors.primaryDarker.withValues(alpha: 0.45),
+      barrierColor: AppColors.warmCoral.withValues(alpha: 0.45),
       builder: (BuildContext dialogContext) {
         return Dialog(
           elevation: 0,
@@ -85,12 +85,12 @@ class AppDialogs {
           child: Container(
             constraints: const BoxConstraints(maxWidth: 380),
             decoration: BoxDecoration(
-              color: AppColors.backgroundNormal,
+              color: Colors.white,
               borderRadius: BorderRadius.circular(20),
-              border: Border.all(color: AppColors.borderNormal, width: 1),
+              border: Border.all(color: AppColors.goldenHoney, width: 1),
               boxShadow: [
                 BoxShadow(
-                  color: AppColors.primaryDarker.withValues(alpha: 0.12),
+                  color: AppColors.warmCoral.withValues(alpha: 0.12),
                   blurRadius: 24,
                   offset: const Offset(0, 8),
                 ),
@@ -119,8 +119,8 @@ class AppDialogs {
                   Text(
                     title,
                     textAlign: TextAlign.center,
-                    style: AppStyles.bold20.copyWith(
-                      color: AppColors.textPrimaryNormal,
+                    style: AppStyles.bold16.copyWith(
+                      color: AppColors.darkBrown,
                     ),
                   ),
 
@@ -131,7 +131,7 @@ class AppDialogs {
                       subtitle,
                       textAlign: TextAlign.center,
                       style: AppStyles.regular14.copyWith(
-                        color: AppColors.textSecondaryNormal,
+                        color: AppColors.darkBrown,
                         height: 1.45,
                       ),
                     ),
@@ -153,7 +153,7 @@ class AppDialogs {
                                     () => Navigator.pop(dialogContext),
                                 style: OutlinedButton.styleFrom(
                                   side: const BorderSide(
-                                    color: AppColors.borderNormal,
+                                    color: AppColors.white,
                                     width: 1.2,
                                   ),
                                   shape: RoundedRectangleBorder(
@@ -162,8 +162,8 @@ class AppDialogs {
                                 ),
                                 child: Text(
                                   no,
-                                  style: AppStyles.medium15.copyWith(
-                                    color: AppColors.textSecondaryNormal,
+                                  style: AppStyles.bold15.copyWith(
+                                    color: AppColors.darkBrown,
                                   ),
                                 ),
                               ),
@@ -181,7 +181,7 @@ class AppDialogs {
                               child: ElevatedButton(
                                 onPressed: onTap,
                                 style: ElevatedButton.styleFrom(
-                                  backgroundColor: AppColors.primary,
+                                  backgroundColor: AppColors.darkBrown,
                                   foregroundColor: Colors.white,
                                   elevation: 0,
                                   shape: RoundedRectangleBorder(
@@ -190,7 +190,7 @@ class AppDialogs {
                                 ),
                                 child: Text(
                                   ok,
-                                  style: AppStyles.medium15.copyWith(
+                                  style: AppStyles.bold15.copyWith(
                                     color: Colors.white,
                                   ),
                                 ),

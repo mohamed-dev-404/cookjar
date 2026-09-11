@@ -1,21 +1,23 @@
-import 'package:flutter/material.dart';
-import 'package:lottie/lottie.dart';
 import 'package:cookjar/core/utils/assets/app_lotties.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
+import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
 
 class EmptyStateWidget extends StatelessWidget {
   final String title;
   final String subtitle;
+  final String? lottieAsset;
   final double lottieHeight;
   final double? lottieWidth;
   final EdgeInsetsGeometry padding;
 
   const EmptyStateWidget({
     super.key,
-    this.title = 'No Data Found',
-    this.subtitle = 'There is nothing to show at the moment.',
-    this.lottieHeight = 250,
+    this.title = 'No Saved Yet',
+    this.subtitle = 'Tap the heart icon on any recipe to save it here.',
+    this.lottieAsset,
+    this.lottieHeight = 300,
     this.lottieWidth,
     this.padding = const EdgeInsets.symmetric(horizontal: 24.0, vertical: 32.0),
   });
@@ -29,7 +31,7 @@ class EmptyStateWidget extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Lottie.asset(
-            AppLotties.emptyStateJson,
+            lottieAsset ?? AppLotties.cooking,
             height: lottieHeight,
             width: lottieWidth,
             fit: BoxFit.contain,
@@ -37,16 +39,14 @@ class EmptyStateWidget extends StatelessWidget {
           const SizedBox(height: 24),
           Text(
             title,
-            style: AppStyles.bold24.copyWith(
-              color: AppColors.textPrimaryNormal,
-            ),
+            style: AppStyles.bold20.copyWith(color: AppColors.warmCoral),
             textAlign: TextAlign.center,
           ),
           const SizedBox(height: 12),
           Text(
             subtitle,
             style: AppStyles.regular14.copyWith(
-              color: AppColors.textSecondaryNormal,
+              color: AppColors.darkBrown.withValues(alpha: 0.7),
             ),
             textAlign: TextAlign.center,
           ),

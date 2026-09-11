@@ -61,7 +61,7 @@ class AppTextFormField extends StatelessWidget {
       children: [
         Text(
           label!,
-          style: AppStyles.bold15.copyWith(color: AppColors.primary),
+          style: AppStyles.bold15.copyWith(color: AppColors.warmCoral),
         ),
         const Gap(8),
         field,

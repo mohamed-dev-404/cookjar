@@ -1,7 +1,32 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+
 class AppIcons {
   AppIcons._();
 
-  static const String iconLogoPng = 'assets/icons/icon_logo.png';
+  //------------------------auth------------------------
+  static const IconData mailIcon = CupertinoIcons.mail;
+  static const IconData lockIcon = CupertinoIcons.lock;
+  static const IconData userIcon = CupertinoIcons.person;
+  static const IconData eyeIcon = CupertinoIcons.eye;
+  static const IconData eyeOffIcon = CupertinoIcons.eye_slash;
+  //------------------------navigation------------------------
+  static const IconData personOutlinedIcon = Icons.person_outline;
+  static const IconData personIcon = Icons.person;
+  static const IconData homeOutlinedIcon = Icons.home_outlined;
+  static const IconData homeIcon = Icons.home;
+  static const IconData bookmarkBorderIcon = Icons.bookmark_border;
+  static const IconData bookmarkIcon = Icons.bookmark;
+  //------------------------setting------------------------
+  static const IconData logOutIcon = CupertinoIcons.escape;
+  static const IconData policyIcon = CupertinoIcons.doc_text;
+  static const IconData termsIcon = CupertinoIcons.square_list;
+
+  //------------------------food------------------------
+  static const IconData starRoundedIcon = CupertinoIcons.star_circle_fill;
+  static const IconData peopleRoundedIcon = CupertinoIcons.person_2;
+  static const IconData timeRoundedIcon = CupertinoIcons.clock;
+  static const IconData restaurantIcon = Icons.restaurant;
 
   //* Input field icons
   static const String mailSvg = 'assets/icons/mail.svg';
