@@ -25,7 +25,7 @@ class HomeView extends StatelessWidget {
               MainButton(
                 text: "Shake the Jar",
                 onPressed: () {
-                  _showRecipePreviewDialog;
+                  _showRecipePreviewDialog(context);
                 },
               ),
 
