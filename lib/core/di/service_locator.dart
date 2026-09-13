@@ -1,3 +1,7 @@
+import 'package:cookjar/features/auth/data/data_source/auth_remote_data_source.dart';
+import 'package:cookjar/features/auth/data/repos/auth_repo.dart';
+import 'package:cookjar/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:cookjar/features/auth/presentation/register/view_model/register_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:cookjar/core/services/network/api_consumer.dart';
@@ -14,33 +18,18 @@ void setupServiceLocator() {
   getIt.registerLazySingleton<ApiConsumer>(() => DioConsumer(getIt<Dio>()));
 
   //! Auth Feature
+  getIt.registerLazySingleton<AuthRemoteDataSource>(
+    () => const AuthRemoteDataSourceImpl(),
+  );
 
   //? Repo
-  // getIt.registerLazySingleton<AuthRepo>(
-  //   () => AuthRepoImpl(getIt<ApiConsumer>()),
-  // );
+  getIt.registerLazySingleton<AuthRepo>(
+    () => AuthRepoImpl(remoteDataSource: getIt<AuthRemoteDataSource>()),
+  );
 
-  // //? Cubits
-  // getIt.registerFactory<LoginCubit>(
-  //   () => LoginCubit(authRepo: getIt<AuthRepo>()),
-  // );
-  // getIt.registerFactory<RegisterCubit>(
-  //   () => RegisterCubit(authRepo: getIt<AuthRepo>()),
-  // );
-  // getIt.registerFactory<LogoutCubit>(() => LogoutCubit(getIt<AuthRepo>()));
-
-  //! Complete Profile Feature
-
-  // //? Repo
-  // getIt.registerLazySingleton<CompleteProfileRepo>(
-  //   () => CompleteProfileRepoImpl(getIt<ApiConsumer>()),
-  // );
-
-  // //? Cubit
-  // getIt.registerFactory<CompleteProfileCubit>(
-  //   () =>
-  //       CompleteProfileCubit(completeProfileRepo: getIt<CompleteProfileRepo>()),
-  // );
-
-
+  //? Cubits
+  getIt.registerFactory<RegisterCubit>(
+    () => RegisterCubit(authRepo: getIt<AuthRepo>()),
+  );
 }
+

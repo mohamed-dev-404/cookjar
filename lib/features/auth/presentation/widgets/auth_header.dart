@@ -4,15 +4,17 @@ import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class LoginHeader extends StatelessWidget {
-  const LoginHeader({super.key});
+class AuthHeader extends StatelessWidget {
+  const AuthHeader({super.key, required this.title});
+
+  final String title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       padding: const EdgeInsets.only(top: 12, bottom: 10),
-      decoration: BoxDecoration(
+      decoration: const BoxDecoration(
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
@@ -27,10 +29,7 @@ class LoginHeader extends StatelessWidget {
 
           const Gap(12),
 
-          Text(
-            'CookJar Login',
-            style: AppStyles.bold28.copyWith(color: AppColors.white),
-          ),
+          Text(title, style: AppStyles.bold28.copyWith(color: AppColors.white)),
         ],
       ),
     );

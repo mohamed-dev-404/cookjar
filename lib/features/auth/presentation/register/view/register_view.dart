@@ -1,11 +1,11 @@
 import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/features/auth/presentation/widgets/auth_header.dart';
-import 'package:cookjar/features/auth/presentation/login/view/widgets/login_form.dart';
+import 'package:cookjar/features/auth/presentation/register/view/widgets/register_form.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  const RegisterView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +17,7 @@ class LoginView extends StatelessWidget {
             const SliverToBoxAdapter(
               child: Column(
                 children: [
-                  AuthHeader(title: 'CookJar Login'),
+                  AuthHeader(title: 'CookJar Register'),
                   Gap(16),
                 ],
               ),
@@ -34,7 +34,7 @@ class LoginView extends StatelessWidget {
                   color: AppColors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(36)),
                 ),
-                child: const LoginForm(),
+                child: const RegisterForm(),
               ),
             ),
           ],

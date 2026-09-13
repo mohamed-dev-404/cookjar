@@ -1,7 +1,11 @@
+import 'package:cookjar/core/di/service_locator.dart';
 import 'package:cookjar/features/auth/presentation/login/view/login_view.dart';
+import 'package:cookjar/features/auth/presentation/register/view/register_view.dart';
+import 'package:cookjar/features/auth/presentation/register/view_model/register_cubit.dart';
 import 'package:cookjar/features/main/presentation/view/main_view.dart';
 import 'package:cookjar/features/splash/splash.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cookjar/core/routes/routes.dart';
 
@@ -21,40 +25,16 @@ class AppRouter {
       ),
 
       //* Login view
-      GoRoute(
-        path: Routes.login,
-        builder: (context, state) => LoginView(),
-        ),
-      
-      
-
-
-
-        // GoRoute(
-      //   path: Routes.login,
-      //   builder: (context, state) => BlocProvider(
-      //     create: (context) => getIt<LoginCubit>(),
-      //     child: const LoginView(),
-      //   ),
-      // ),
+      GoRoute(path: Routes.login, builder: (context, state) => const LoginView()),
 
       //* Register view
-      // GoRoute(
-      //   path: Routes.register,
-      //   builder: (context, state) => BlocProvider(
-      //     create: (context) => getIt<RegisterCubit>(),
-      //     child: const RegisterView(),
-      //   ),
-      // ),
-
-      //* Complete profile view
-      // GoRoute(
-      //   path: Routes.completeProfile,
-      //   builder: (context, state) => BlocProvider(
-      //     create: (context) => getIt<CompleteProfileCubit>()..loadLookups(),
-      //     child: const CompleteProfileView(),
-      //   ),
-      // ),
+      GoRoute(
+        path: Routes.register,
+        builder: (context, state) => BlocProvider(
+          create: (context) => getIt<RegisterCubit>(),
+          child: const RegisterView(),
+        ),
+      ),
 
       // * Main view
       GoRoute(
@@ -64,3 +44,4 @@ class AppRouter {
     ],
   );
 }
+
