@@ -1,3 +1,5 @@
+import 'package:cookjar/firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -24,11 +26,14 @@ class AppInitializer {
       //* (3) Setup Bloc observer
       _initBlocObserver();
 
-      //* (4) Initialize app storage systems
+      //* (4) Initialize Firebase
+      await _initFirebase();
+
+      //* (5) Initialize app storage systems
       // SharedPreferences, SecureStorage
       await _initAppStorage();
 
-      //* (5) Setup service locator (GetIt)
+      //* (6) Setup service locator (GetIt)
       // Registers all app services and dependencies
       _initServiceLocator();
 
@@ -52,6 +57,16 @@ class AppInitializer {
   //! =========================
   //! Private helper methods
   //! =========================
+
+  /// Initializes Firebase Core with generated options
+  static Future<void> _initFirebase() async {
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
+
+    AppLogger.success('Firebase initialized successfully', tag: 'Firebase');
+  }
+
   static Future<void> _initAppStorage() async {
     // (1) Initialize SharedPreferences
     await _initSharedPreferences();
