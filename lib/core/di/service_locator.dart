@@ -20,7 +20,7 @@ void setupServiceLocator() {
 
   //! Auth Feature
   getIt.registerLazySingleton<AuthRemoteDataSource>(
-    () => const AuthRemoteDataSourceImpl(),
+    () => AuthRemoteDataSourceImpl(),
   );
 
   //? Repo

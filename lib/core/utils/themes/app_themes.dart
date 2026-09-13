@@ -140,6 +140,8 @@ class CustomInputTheme {
       vertical: AppSpacing.md,
     ),
 
+    errorMaxLines: 10,
+
     // 1. Hint Style (Soft readable dark brown tint)
     hintStyle: AppStyles.regular14.copyWith(
       color: AppColors.darkBrown.withValues(alpha: 0.45),
