@@ -11,16 +11,16 @@ class LoginView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: AppColors.warmCoral,
-
       body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const LoginHeader(),
-
-              const Gap(16),
-
-              Container(
+        child: CustomScrollView(
+          slivers: [
+            SliverToBoxAdapter(
+              child: Column(children: const [LoginHeader(), Gap(16)]),
+            ),
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Container(
+                width: double.infinity,
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24,
                   vertical: 28,
@@ -29,10 +29,10 @@ class LoginView extends StatelessWidget {
                   color: AppColors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(36)),
                 ),
-                child: SingleChildScrollView(child: LoginForm()),
+                child: const LoginForm(),
               ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

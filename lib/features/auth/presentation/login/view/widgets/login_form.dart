@@ -19,8 +19,6 @@ class _LoginFormState extends State<LoginForm> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  bool obscurePassword = true;
-
   @override
   void dispose() {
     emailController.dispose();
