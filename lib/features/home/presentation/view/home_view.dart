@@ -9,7 +9,6 @@ class HomeView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFAFAFA),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Column(
@@ -18,7 +17,6 @@ class HomeView extends StatelessWidget {
               // 1. Home Header
               _buildHeader(),
 
-              AnimatedLoadingWidget(),
               const SizedBox(height: 80),
 
               // Shake Button
@@ -30,10 +28,6 @@ class HomeView extends StatelessWidget {
               ),
 
               const SizedBox(height: 80),
-
-              EmptyStateWidget(),
-
-              const SizedBox(height: 30),
             ],
           ),
         ),
