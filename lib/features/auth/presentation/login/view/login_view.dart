@@ -1,6 +1,8 @@
+import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/features/auth/presentation/login/view/widgets/login_form.dart';
 import 'package:cookjar/features/auth/presentation/login/view/widgets/login_header.dart';
 import 'package:flutter/material.dart';
+import 'package:gap/gap.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -8,27 +10,29 @@ class LoginView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFFFFFDFB),
-      body: SafeArea(
-        child: Column(
-          children: [
-            const LoginHeader(),
+      backgroundColor: AppColors.warmCoral,
 
-            Expanded(
-              child: Container(
-                width: double.infinity,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const LoginHeader(),
+
+              const Gap(16),
+
+              Container(
                 padding: const EdgeInsets.symmetric(
                   horizontal: 24,
                   vertical: 28,
                 ),
                 decoration: const BoxDecoration(
-                  color: Colors.white,
+                  color: AppColors.white,
                   borderRadius: BorderRadius.vertical(top: Radius.circular(36)),
                 ),
-                child: const SingleChildScrollView(child: LoginForm()),
+                child: SingleChildScrollView(child: LoginForm()),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

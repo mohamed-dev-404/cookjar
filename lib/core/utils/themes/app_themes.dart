@@ -83,7 +83,7 @@ class CustomButtonTheme {
         horizontal: AppSpacing.lg,
         vertical: AppSpacing.md,
       ),
-      shape: const RoundedRectangleBorder(borderRadius: AppRadius.borderMd),
+      shape: const RoundedRectangleBorder(borderRadius: AppRadius.borderPill),
       textStyle: AppStyles.bold15,
     ),
   );

@@ -1,37 +1,17 @@
+import 'package:cookjar/core/utils/assets/app_images.dart';
+import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class SocialLoginButtons extends StatelessWidget {
   const SocialLoginButtons({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        _SocialButton(
-          child: const Icon(Icons.apple, size: 30, color: Colors.black),
-          onTap: () {
-            // Apple login
-          },
-        ),
-
-        const Gap(18),
-
-        _SocialButton(
-          child: const Text(
-            'G',
-            style: TextStyle(
-              fontSize: 30,
-              fontWeight: FontWeight.w600,
-              color: Color(0xFF4285F4),
-            ),
-          ),
-          onTap: () {
-            // Google login
-          },
-        ),
-      ],
+    return _SocialButton(
+      child: Image.asset(AppImages.google, width: 35),
+      onTap: () {
+        // Google login
+      },
     );
   }
 }
@@ -51,9 +31,9 @@ class _SocialButton extends StatelessWidget {
         width: 62,
         height: 62,
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: AppColors.white,
           borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: Colors.grey.shade300),
+          border: Border.all(color: AppColors.borderGray),
         ),
         child: Center(child: child),
       ),

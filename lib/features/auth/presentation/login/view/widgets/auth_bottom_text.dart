@@ -1,3 +1,4 @@
+import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class AuthBottomText extends StatelessWidget {
@@ -8,19 +9,12 @@ class AuthBottomText extends StatelessWidget {
     return Wrap(
       alignment: WrapAlignment.center,
       children: [
-        const Text('New to CookJar? ', style: TextStyle(fontSize: 16)),
+        Text('New to CookJar? ', style: AppStyles.medium16),
         GestureDetector(
           onTap: () {
             // Navigate to register
           },
-          child: const Text(
-            'Create an account.',
-            style: TextStyle(
-              fontSize: 16,
-              decoration: TextDecoration.underline,
-              fontWeight: FontWeight.w500,
-            ),
-          ),
+          child: Text('Create an account.', style: AppStyles.bold16),
         ),
       ],
     );

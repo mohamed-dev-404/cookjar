@@ -1,3 +1,4 @@
+import 'package:cookjar/core/widgets/buttons/main_button.dart';
 import 'package:cookjar/core/widgets/inputs/app_text_form_field.dart';
 import 'package:cookjar/core/widgets/inputs/password_text_form_field.dart';
 import 'package:cookjar/features/auth/presentation/login/view/widgets/auth_bottom_text.dart';
@@ -33,11 +34,7 @@ class _LoginFormState extends State<LoginForm> {
       children: [
         const Gap(8),
 
-        const Text(
-          'Welcome back to CookJar!',
-          textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 25, fontWeight: FontWeight.w600),
-        ),
+        Text('Welcome back to CookJar!', style: AppStyles.bold24),
 
         const Gap(6),
 
@@ -51,7 +48,7 @@ class _LoginFormState extends State<LoginForm> {
           hintText: 'Username or Email',
           keyboardType: TextInputType.emailAddress,
           textInputAction: TextInputAction.next,
-          prefixIcon: const Icon(Icons.person_outline, size: 27),
+          prefixIcon: const Icon(Icons.person_outline),
         ),
 
         const Gap(18),
@@ -60,47 +57,13 @@ class _LoginFormState extends State<LoginForm> {
         PasswordTextFormField(
           controller: passwordController,
           hintText: 'Password',
-          // obscureText: obscurePassword,
-          // textInputAction: TextInputAction.done,
-          prefixIcon: const Icon(Icons.lock_outline, size: 25),
-          // suffixIcon: IconButton(
-          //   onPressed: () {
-          //     setState(() {
-          //       obscurePassword = !obscurePassword;
-          //     });
-          //   },
-          //   icon: Icon(
-          //     obscurePassword
-          //         ? Icons.visibility_off_outlined
-          //         : Icons.visibility_outlined,
-          //   ),
-          // ),
+          prefixIcon: const Icon(Icons.lock_outline),
         ),
 
         const Gap(35),
 
         // Login button
-        SizedBox(
-          width: double.infinity,
-          height: 58,
-          child: ElevatedButton(
-            onPressed: () {
-              // Login logic
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: AppColors.warmCoral,
-              foregroundColor: Colors.white,
-              elevation: 0,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(30),
-              ),
-            ),
-            child: const Text(
-              'Login',
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.w600),
-            ),
-          ),
-        ),
+        MainButton(text: 'Login', onPressed: () {}),
 
         const Gap(20),
 
@@ -109,10 +72,7 @@ class _LoginFormState extends State<LoginForm> {
           onPressed: () {
             // Forgot password
           },
-          child: const Text(
-            'Forgot Password?',
-            style: TextStyle(color: Colors.black, fontSize: 17),
-          ),
+          child: Text('Forgot Password?', style: AppStyles.medium16),
         ),
 
         const Gap(35),
@@ -140,14 +100,14 @@ class _OrLoginWith extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        Expanded(child: Divider(color: Colors.grey.shade300)),
+        Expanded(child: Divider(color: AppColors.borderGray)),
 
-        const Padding(
+        Padding(
           padding: EdgeInsets.symmetric(horizontal: 16),
-          child: Text('or login with', style: TextStyle(fontSize: 16)),
+          child: Text('or login with', style: AppStyles.regular16),
         ),
 
-        Expanded(child: Divider(color: Colors.grey.shade300)),
+        Expanded(child: Divider(color: AppColors.borderGray)),
       ],
     );
   }

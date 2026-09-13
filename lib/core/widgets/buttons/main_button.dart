@@ -49,7 +49,7 @@ class MainButton extends StatelessWidget {
               ),
             )
           //todo: text hint style
-          : Text(text, style: AppStyles.bold15.copyWith(color: textColor)),
+          : Text(text, style: AppStyles.bold20.copyWith(color: textColor)),
     );
   }
 }
