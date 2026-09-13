@@ -1,6 +1,7 @@
 import 'package:cookjar/features/auth/data/data_source/auth_remote_data_source.dart';
 import 'package:cookjar/features/auth/data/repos/auth_repo.dart';
 import 'package:cookjar/features/auth/data/repos/auth_repo_impl.dart';
+import 'package:cookjar/features/auth/presentation/login/view_model/login_cubit.dart';
 import 'package:cookjar/features/auth/presentation/register/view_model/register_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -28,8 +29,10 @@ void setupServiceLocator() {
   );
 
   //? Cubits
+  getIt.registerFactory<LoginCubit>(
+    () => LoginCubit(authRepo: getIt<AuthRepo>()),
+  );
   getIt.registerFactory<RegisterCubit>(
     () => RegisterCubit(authRepo: getIt<AuthRepo>()),
   );
 }
-
