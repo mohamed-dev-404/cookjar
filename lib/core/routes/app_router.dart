@@ -3,6 +3,7 @@ import 'package:cookjar/features/auth/presentation/login/view/login_view.dart';
 import 'package:cookjar/features/auth/presentation/login/view_model/login_cubit.dart';
 import 'package:cookjar/features/auth/presentation/register/view/register_view.dart';
 import 'package:cookjar/features/auth/presentation/register/view_model/register_cubit.dart';
+import 'package:cookjar/features/complete_profile/presentation/view/complete_profile_view.dart';
 import 'package:cookjar/features/main/presentation/view/main_view.dart';
 import 'package:cookjar/features/splash/splash.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +13,7 @@ import 'package:cookjar/core/routes/routes.dart';
 
 class AppRouter {
   AppRouter._();
+  static const completeProfile = '/complete-profile';
 
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();
@@ -42,6 +44,10 @@ class AppRouter {
           child: const RegisterView(),
         ),
       ),
+      GoRoute(
+  path: Routes.completeProfile,
+  builder: (context, state) => const CompleteProfileView(),
+),
 
       // * Main view
       GoRoute(

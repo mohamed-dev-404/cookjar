@@ -52,10 +52,10 @@ class _RegisterFormState extends State<RegisterForm> {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterCubit, RegisterState>(
       listener: (context, state) {
-        if (state is RegisterSuccess) {
-          AppSnackBar.success(context, 'Account created successfully!');
-          context.go(Routes.login);
-        } else if (state is RegisterError) {
+if (state is RegisterSuccess) {
+  AppSnackBar.success(context, 'Account created successfully!');
+  context.go(Routes.completeProfile);
+} else if (state is RegisterError) {
           AppSnackBar.error(context, state.errorMessage);
         }
       },
@@ -158,4 +158,5 @@ class _RegisterFormState extends State<RegisterForm> {
       },
     );
   }
+  
 }
