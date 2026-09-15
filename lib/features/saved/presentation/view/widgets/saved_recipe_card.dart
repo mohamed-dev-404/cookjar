@@ -4,24 +4,21 @@ import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:cookjar/core/utils/themes/app_radius.dart';
 import 'package:cookjar/core/utils/themes/app_spacing.dart';
+import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
 
 class SavedRecipeCard extends StatelessWidget {
-  final String imageUrl;
-  final String title;
-  final String cookingTime;
-  final String servings;
-  final double rating;
-  final VoidCallback? onTap;
-
   const SavedRecipeCard({
     super.key,
-    required this.imageUrl,
-    required this.title,
-    required this.cookingTime,
-    required this.servings,
-    required this.rating,
+    required this.recipe,
     this.onTap,
+    this.onFavoriteTap,
+    this.isFavorite = true,
   });
+
+  final RecipeDetailsModel recipe;
+  final VoidCallback? onTap;
+  final VoidCallback? onFavoriteTap;
+  final bool isFavorite;
 
   @override
   Widget build(BuildContext context) {
@@ -52,7 +49,7 @@ class SavedRecipeCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: AppRadius.borderMd,
                 child: Image.network(
-                  imageUrl,
+                  recipe.image,
                   width: 90,
                   height: 90,
                   fit: BoxFit.cover,
@@ -77,7 +74,7 @@ class SavedRecipeCard extends StatelessWidget {
                   children: [
                     // Recipe Title
                     Text(
-                      title,
+                      recipe.name,
                       style: AppStyles.bold16,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
@@ -94,7 +91,7 @@ class SavedRecipeCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          cookingTime,
+                          '${recipe.totalTimeMinutes} min',
                           style: AppStyles.medium12.copyWith(
                             color: AppColors.darkBrown.withValues(alpha: 0.6),
                           ),
@@ -108,7 +105,7 @@ class SavedRecipeCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          servings,
+                          '${recipe.servings} servings',
                           style: AppStyles.medium12.copyWith(
                             color: AppColors.darkBrown.withValues(alpha: 0.6),
                           ),
@@ -127,12 +124,21 @@ class SavedRecipeCard extends StatelessWidget {
                         ),
                         const SizedBox(width: 4),
                         Text(
-                          rating.toStringAsFixed(1),
+                          recipe.rating.toStringAsFixed(1),
                           style: AppStyles.bold14,
                         ),
                       ],
                     ),
                   ],
+                ),
+              ),
+
+              // 3. Favorite Button
+              IconButton(
+                onPressed: onFavoriteTap,
+                icon: Icon(
+                  isFavorite ? Icons.favorite : Icons.favorite_border,
+                  color: AppColors.warmCoral,
                 ),
               ),
             ],

@@ -23,7 +23,6 @@ class RecipeDetailsModel {
     required this.instructions,
   });
 
-  /// Getter لحساب الوقت الإجمالي المعروض في التصميم (35 min)
   int get totalTimeMinutes => prepTimeMinutes + cookTimeMinutes;
 
   factory RecipeDetailsModel.fromJson(Map<String, dynamic> json) {
