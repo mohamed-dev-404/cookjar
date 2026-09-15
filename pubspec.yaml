@@ -43,12 +43,11 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/icons/
-    - assets/images/
-    - assets/lotties/
-    - assets/audios/
-    - .env
-
+  - assets/icons/
+  - assets/images/
+  - assets/lotties/
+  - assets/audios/
+  - .env
   # fonts:
   #   - family: Schyler
   #     fonts:

@@ -1,8 +1,10 @@
+import 'package:cookjar/core/routes/routes.dart';
 import 'package:cookjar/features/saved/presentation/view/widgets/saved_recipe_card.dart';
 import 'package:flutter/material.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:cookjar/core/widgets/buttons/main_button.dart';
+import 'package:go_router/go_router.dart' show GoRouterHelper;
 
 class SavedView extends StatelessWidget {
   const SavedView({super.key});
@@ -70,6 +72,7 @@ class SavedView extends StatelessWidget {
               cookingTime: '30 min',
               servings: '4 servings',
               rating: 4.5,
+              onTap: () => context.push(Routes.recipeDetails, extra: 1),
             ),
 
             SizedBox(height: 25),

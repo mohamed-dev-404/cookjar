@@ -8,6 +8,10 @@ import 'package:cookjar/features/profile/data/data_source/profile_remote_data_so
 import 'package:cookjar/features/profile/data/repos/profile_repo.dart';
 import 'package:cookjar/features/profile/data/repos/profile_repo_impl.dart';
 import 'package:cookjar/features/profile/presentation/view_model/profile_cubit.dart';
+import 'package:cookjar/features/recipe_details/data/data_source/recipe_details_remote_data_source.dart';
+import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo.dart';
+import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
+import 'package:cookjar/features/recipe_details/presentation/view_model/recipe_details_cubit.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:cookjar/core/services/network/api_consumer.dart';
@@ -56,5 +60,22 @@ void setupServiceLocator() {
   );
   getIt.registerFactory<ProfileCubit>(
     () => ProfileCubit(profileRepo: getIt<ProfileRepo>()),
+  );
+
+  //! Recipe Details Feature
+  getIt.registerLazySingleton<RecipeDetailsRemoteDataSource>(
+    () => RecipeDetailsRemoteDataSourceImpl(apiConsumer: getIt<ApiConsumer>()),
+  );
+
+  //? Repo
+  getIt.registerLazySingleton<RecipeDetailsRepo>(
+    () => RecipeDetailsRepoImpl(
+      remoteDataSource: getIt<RecipeDetailsRemoteDataSource>(),
+    ),
+  );
+
+  //? Cubit
+  getIt.registerFactory<RecipeDetailsCubit>(
+    () => RecipeDetailsCubit(recipeDetailsRepo: getIt<RecipeDetailsRepo>()),
   );
 }
