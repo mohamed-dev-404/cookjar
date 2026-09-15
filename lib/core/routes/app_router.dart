@@ -19,7 +19,7 @@ class AppRouter {
       GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: Routes.splash,
+    initialLocation: Routes.main,
     routes: [
       //* Splash view
       GoRoute(
@@ -45,9 +45,9 @@ class AppRouter {
         ),
       ),
       GoRoute(
-  path: Routes.completeProfile,
-  builder: (context, state) => const CompleteProfileView(),
-),
+        path: Routes.completeProfile,
+        builder: (context, state) => const CompleteProfileView(),
+      ),
 
       // * Main view
       GoRoute(

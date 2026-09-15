@@ -17,12 +17,9 @@ class SavedView extends StatelessWidget {
         flexibleSpace: Container(
           decoration: const BoxDecoration(
             gradient: LinearGradient(
-              colors: [
-                AppColors.goldenHoney,
-                AppColors.warmCoral,
-              ], // Warm recipe gradient
-              begin: Alignment.topLeft,
-              end: Alignment.bottomRight,
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+              colors: [AppColors.goldenHoney, AppColors.warmCoral],
             ),
           ),
         ),

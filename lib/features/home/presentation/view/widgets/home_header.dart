@@ -20,27 +20,36 @@ class HomeHeader extends StatelessWidget {
         ? avatarUrl!
         : _defaultAvatarUrl;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Text(
-            'Hi, $userName! 👋',
-            style: AppStyles.bold24.copyWith(color: AppColors.white),
-          ),
-          Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              border: Border.all(color: AppColors.white, width: 2),
+    return Container(
+      decoration: const BoxDecoration(
+        gradient: LinearGradient(
+          begin: Alignment.topCenter,
+          end: Alignment.bottomCenter,
+          colors: [AppColors.goldenHoney, AppColors.warmCoral],
+        ),
+      ),
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              'Hi, $userName! 👋',
+              style: AppStyles.bold24.copyWith(color: AppColors.white),
             ),
-            child: CircleAvatar(
-              radius: 24,
-              backgroundColor: AppColors.lightHoney,
-              backgroundImage: NetworkImage(effectiveAvatarUrl),
+            Container(
+              decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                border: Border.all(color: AppColors.white, width: 2),
+              ),
+              child: CircleAvatar(
+                radius: 24,
+                backgroundColor: AppColors.lightHoney,
+                backgroundImage: NetworkImage(effectiveAvatarUrl),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
