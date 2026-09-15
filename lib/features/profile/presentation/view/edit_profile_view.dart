@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:cookjar/core/common/app_snack_bar.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/enums/favorite_meal.dart';
+import 'package:cookjar/core/utils/helpers/image_helper.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:cookjar/core/widgets/buttons/main_button.dart';
 import 'package:cookjar/core/widgets/inputs/app_text_form_field.dart';
@@ -121,12 +122,9 @@ class _EditProfileViewState extends State<EditProfileView> {
                             backgroundColor: AppColors.borderGray,
                             backgroundImage: _selectedImage != null
                                 ? FileImage(_selectedImage!)
-                                : (widget.profile.profileImage.isNotEmpty
-                                          ? NetworkImage(
-                                              widget.profile.profileImage,
-                                            )
-                                          : null)
-                                      as ImageProvider?,
+                                : imageProviderFromUrl(
+                                      widget.profile.profileImage,
+                                    ),
                             child:
                                 (_selectedImage == null &&
                                     widget.profile.profileImage.isEmpty)

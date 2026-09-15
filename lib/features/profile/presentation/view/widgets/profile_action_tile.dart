@@ -27,6 +27,9 @@ class ProfileActionTile extends StatelessWidget {
       decoration: BoxDecoration(
         color: backgroundColor ?? AppColors.white,
         borderRadius: BorderRadius.circular(20),
+        border: BoxBorder.all(
+          color: AppColors.warmCoral.withValues(alpha: 0.6),
+        ),
         boxShadow: [
           BoxShadow(
             color: AppColors.darkBrown.withValues(alpha: 0.03),
@@ -45,18 +48,12 @@ class ProfileActionTile extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Row(
               children: [
-                Icon(
-                  icon,
-                  color: iconColor,
-                  size: 26,
-                ),
+                Icon(icon, color: iconColor, size: 26),
                 const SizedBox(width: 16),
                 Expanded(
                   child: Text(
                     title,
-                    style: AppStyles.bold16.copyWith(
-                      color: textColor,
-                    ),
+                    style: AppStyles.bold16.copyWith(color: textColor),
                   ),
                 ),
               ],

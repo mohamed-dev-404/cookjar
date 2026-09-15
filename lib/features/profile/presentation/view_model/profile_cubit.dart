@@ -14,10 +14,13 @@ class ProfileCubit extends Cubit<ProfileState> {
 
     try {
       final profile = await profileRepo.getProfile();
+      if (isClosed) return;
       emit(ProfileSuccess(profile: profile));
     } on AppException catch (e) {
+      if (isClosed) return;
       emit(ProfileError(errorMessage: e.errorModel.errorMessage));
     } catch (e) {
+      if (isClosed) return;
       emit(ProfileError(errorMessage: e.toString()));
     }
   }
@@ -25,10 +28,13 @@ class ProfileCubit extends Cubit<ProfileState> {
   Future<void> logout() async {
     try {
       await profileRepo.signOut();
+      if (isClosed) return;
       emit(const ProfileLoggedOut());
     } on AppException catch (e) {
+      if (isClosed) return;
       emit(ProfileError(errorMessage: e.errorModel.errorMessage));
     } catch (e) {
+      if (isClosed) return;
       emit(ProfileError(errorMessage: e.toString()));
     }
   }
@@ -52,15 +58,18 @@ class ProfileCubit extends Cubit<ProfileState> {
 
       await profileRepo.updateProfile(updatedProfile, newImage: newImage);
 
+      if (isClosed) return;
       emit(const ProfileUpdateSuccess());
       // Re-fetch to display the fresh data
       await fetchProfile();
     } on AppException catch (e) {
+      if (isClosed) return;
       emit(ProfileUpdateError(errorMessage: e.errorModel.errorMessage));
       emit(
         ProfileSuccess(profile: currentProfile),
       ); // Revert back to view state
     } catch (e) {
+      if (isClosed) return;
       emit(ProfileUpdateError(errorMessage: e.toString()));
       emit(ProfileSuccess(profile: currentProfile));
     }

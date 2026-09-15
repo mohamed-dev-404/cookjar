@@ -6,6 +6,6 @@ abstract class CompleteProfileRepo {
     required String name,
     required String email,
     required String favoriteMeal,
-    File? imageFile,
+    required File imageFile,
   });
 }

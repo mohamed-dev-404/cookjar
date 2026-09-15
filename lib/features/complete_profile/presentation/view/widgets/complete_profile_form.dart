@@ -49,6 +49,11 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       return;
     }
 
+    if (_selectedImage == null) {
+      AppSnackBar.error(context, 'Please select a profile image.');
+      return;
+    }
+
     if (_selectedMeal == null) {
       AppSnackBar.error(context, 'Please select your favorite meal.');
       return;
@@ -58,7 +63,7 @@ class _CompleteProfileFormState extends State<CompleteProfileForm> {
       name: _nameController.text.trim(),
       email: user.email ?? '',
       favoriteMeal: _selectedMeal!.label,
-      imageFile: _selectedImage,
+      imageFile: _selectedImage!,
     );
   }
 

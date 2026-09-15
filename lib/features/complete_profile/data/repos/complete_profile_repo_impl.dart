@@ -14,17 +14,15 @@ class CompleteProfileRepoImpl implements CompleteProfileRepo {
     required String name,
     required String email,
     required String favoriteMeal,
-    File? imageFile,
+    required File imageFile,
   }) async {
     String profileImageUrl = '';
 
-    // If an image was selected, upload it first
-    if (imageFile != null) {
-      profileImageUrl = await remoteDataSource.uploadProfileImage(
-        uid: uid,
-        imageFile: imageFile,
-      );
-    }
+    // Upload it first
+    profileImageUrl = await remoteDataSource.uploadProfileImage(
+      uid: uid,
+      imageFile: imageFile,
+    );
 
     // Save profile data to Firestore
     await remoteDataSource.saveProfile(

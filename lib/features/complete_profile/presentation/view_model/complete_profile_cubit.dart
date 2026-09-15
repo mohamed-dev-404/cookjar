@@ -16,7 +16,7 @@ class CompleteProfileCubit extends Cubit<CompleteProfileState> {
     required String name,
     required String email,
     required String favoriteMeal,
-    File? imageFile,
+    required File imageFile,
   }) async {
     emit(const CompleteProfileLoading());
 
@@ -42,10 +42,13 @@ class CompleteProfileCubit extends Cubit<CompleteProfileState> {
       // Also update the user's display name in FirebaseAuth
       await user.updateDisplayName(name);
 
+      if (isClosed) return;
       emit(const CompleteProfileSuccess());
     } on AppException catch (e) {
+      if (isClosed) return;
       emit(CompleteProfileError(errorMessage: e.errorModel.errorMessage));
     } catch (e) {
+      if (isClosed) return;
       emit(CompleteProfileError(errorMessage: e.toString()));
     }
   }

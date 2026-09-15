@@ -28,6 +28,9 @@ class ProfileInfoCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: cardBackgroundColor ?? AppColors.white,
         borderRadius: BorderRadius.circular(24),
+        border: BoxBorder.all(
+          color: AppColors.warmCoral.withValues(alpha: 0.6),
+        ),
         boxShadow: [
           BoxShadow(
             color: AppColors.darkBrown.withValues(alpha: 0.03),
@@ -45,11 +48,7 @@ class ProfileInfoCard extends StatelessWidget {
               color: iconBackgroundColor,
               shape: BoxShape.circle,
             ),
-            child: Icon(
-              icon,
-              color: iconColor,
-              size: 26,
-            ),
+            child: Icon(icon, color: iconColor, size: 26),
           ),
           const Gap(16),
           Expanded(
@@ -68,9 +67,7 @@ class ProfileInfoCard extends StatelessWidget {
                   value,
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: AppStyles.bold16.copyWith(
-                    color: AppColors.darkBrown,
-                  ),
+                  style: AppStyles.bold16.copyWith(color: AppColors.darkBrown),
                 ),
               ],
             ),

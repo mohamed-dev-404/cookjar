@@ -1,4 +1,5 @@
 import 'package:cookjar/core/utils/colors/app_colors.dart';
+import 'package:cookjar/core/utils/helpers/image_helper.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
@@ -61,10 +62,7 @@ class ProfileHeader extends StatelessWidget {
                     child: CircleAvatar(
                       radius: 54,
                       backgroundColor: AppColors.borderGray,
-                      backgroundImage:
-                          (imageUrl != null && imageUrl!.isNotEmpty)
-                          ? NetworkImage(imageUrl!)
-                          : null,
+                      backgroundImage: imageProviderFromUrl(imageUrl),
                       child: (imageUrl == null || imageUrl!.isEmpty)
                           ? const Icon(
                               Icons.person,

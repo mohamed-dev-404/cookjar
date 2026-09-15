@@ -19,7 +19,6 @@ import 'package:cookjar/core/routes/routes.dart';
 
 class AppRouter {
   AppRouter._();
-  static const completeProfile = '/complete-profile';
 
   static final GlobalKey<NavigatorState> navigatorKey =
       GlobalKey<NavigatorState>();

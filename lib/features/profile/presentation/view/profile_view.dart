@@ -43,6 +43,7 @@ class _ProfileViewContent extends StatelessWidget {
                   behavior: SnackBarBehavior.floating,
                 ),
               );
+              context.go(Routes.login);
             }
           },
           builder: (context, state) {
@@ -129,8 +130,8 @@ class _ProfileViewContent extends StatelessWidget {
                           ProfileActionTile(
                             icon: Icons.logout_rounded,
                             title: "Logout",
-                            textColor: const Color(0xFFFF5252),
-                            iconColor: const Color(0xFFFF5252),
+                            textColor: AppColors.error,
+                            iconColor: AppColors.error,
                             onTap: () {
                               ProfileLogoutDialog.show(
                                 context,

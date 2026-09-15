@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
+import 'package:cookjar/core/utils/helpers/image_helper.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -67,10 +68,7 @@ class HomeHeader extends StatelessWidget {
               child: CircleAvatar(
                 radius: 24,
                 backgroundColor: AppColors.lightHoney,
-                backgroundImage:
-                    (avatarUrl != null && avatarUrl.trim().isNotEmpty)
-                    ? NetworkImage(avatarUrl)
-                    : null,
+                backgroundImage: imageProviderFromUrl(avatarUrl),
                 child: (avatarUrl == null || avatarUrl.trim().isEmpty)
                     ? const Icon(
                         Icons.person,

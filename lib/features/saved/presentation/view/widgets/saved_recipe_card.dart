@@ -30,7 +30,7 @@ class SavedRecipeCard extends StatelessWidget {
         color: AppColors.white,
         borderRadius: AppRadius.borderLg,
         border: Border.all(
-          color: AppColors.warning.withValues(alpha: 0.6),
+          color: AppColors.warmCoral.withValues(alpha: 0.6),
           width: 1.0,
         ),
         boxShadow: [

@@ -1,13 +1,14 @@
+import 'dart:convert';
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cookjar/core/errors/exceptions/app_exception.dart';
 import 'package:cookjar/core/errors/models/error_model.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-
-import 'package:firebase_storage/firebase_storage.dart';
+import 'package:flutter/foundation.dart';
+import 'package:image/image.dart' as img;
 
 abstract class CompleteProfileRemoteDataSource {
-  /// Uploads a profile image to Firebase Storage and returns the download URL.
+  /// Converts a profile image to Base64 and returns it as a data URI string.
   Future<String> uploadProfileImage({
     required String uid,
     required File imageFile,
@@ -26,13 +27,9 @@ abstract class CompleteProfileRemoteDataSource {
 class CompleteProfileRemoteDataSourceImpl
     implements CompleteProfileRemoteDataSource {
   final FirebaseFirestore _firestore;
-  final FirebaseStorage _storage;
 
-  CompleteProfileRemoteDataSourceImpl({
-    FirebaseFirestore? firestore,
-    FirebaseStorage? storage,
-  }) : _firestore = firestore ?? FirebaseFirestore.instance,
-       _storage = storage ?? FirebaseStorage.instance;
+  CompleteProfileRemoteDataSourceImpl({FirebaseFirestore? firestore})
+    : _firestore = firestore ?? FirebaseFirestore.instance;
 
   @override
   Future<String> uploadProfileImage({
@@ -40,23 +37,50 @@ class CompleteProfileRemoteDataSourceImpl
     required File imageFile,
   }) async {
     try {
-      final ref = _storage.ref().child('users/$uid/profile/profile_image');
-      final uploadTask = await ref.putFile(imageFile);
-      final downloadUrl = await uploadTask.ref.getDownloadURL();
-      return downloadUrl;
-    } on FirebaseException catch (e) {
-      throw CompleteProfileException(
-        errorModel: ErrorModel(
-          errorMessage: e.message ?? 'Failed to upload profile image.',
-        ),
-      );
+      // Read the image file bytes
+      final bytes = await imageFile.readAsBytes();
+
+      // Compress the image in an isolate to avoid blocking the UI
+      final compressedBytes = await compute(_compressImage, bytes);
+
+      // Convert to Base64 data URI
+      final base64String = base64Encode(compressedBytes);
+      final dataUri = 'data:image/jpeg;base64,$base64String';
+
+      return dataUri;
     } catch (e) {
       throw CompleteProfileException(
         errorModel: ErrorModel(
-          errorMessage: 'Failed to upload image: ${e.toString()}',
+          errorMessage: 'Failed to process image: ${e.toString()}',
         ),
       );
     }
+  }
+
+  /// Compresses an image to a reasonable size for Firestore storage.
+  /// Runs in a separate isolate via [compute].
+  static Uint8List _compressImage(Uint8List bytes) {
+    final image = img.decodeImage(bytes);
+    if (image == null) {
+      throw Exception('Could not decode image');
+    }
+
+    // Resize if too large (max 300px for profile images)
+    img.Image resized;
+    if (image.width > 300 || image.height > 300) {
+      resized = img.copyResize(
+        image,
+        width: 300,
+        height: 300,
+        maintainAspect: true,
+      );
+    } else {
+      resized = image;
+    }
+
+    // Encode as JPEG with 70% quality
+    final compressed = img.encodeJpg(resized, quality: 70);
+    return Uint8List.fromList(compressed);
   }
 
   @override
