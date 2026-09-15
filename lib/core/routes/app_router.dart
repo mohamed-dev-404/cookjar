@@ -19,7 +19,7 @@ class AppRouter {
       GlobalKey<NavigatorState>();
 
   static final router = GoRouter(
-    initialLocation: Routes.main,
+    initialLocation: Routes.splash,
     routes: [
       //* Splash view
       GoRoute(
