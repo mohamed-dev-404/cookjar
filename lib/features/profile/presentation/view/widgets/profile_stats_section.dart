@@ -25,7 +25,7 @@ class ProfileStatsSection extends StatelessWidget {
             iconBackgroundColor: const Color(0xFFFFF0EC),
             cardBackgroundColor: Colors.transparent,
             title: "Favorite Meal",
-            value: favoriteMeal.isNotEmpty ? favoriteMeal : "Dinner",
+            value: favoriteMeal.isNotEmpty ? favoriteMeal : "Not set",
           ),
           const Gap(16),
           // Loved Recipes Card

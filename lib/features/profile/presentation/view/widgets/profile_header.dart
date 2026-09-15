@@ -60,10 +60,18 @@ class ProfileHeader extends StatelessWidget {
                     ),
                     child: CircleAvatar(
                       radius: 54,
-                      backgroundColor: AppColors.lightCoral,
-                      backgroundImage: (imageUrl != null && imageUrl!.isNotEmpty)
+                      backgroundColor: AppColors.borderGray,
+                      backgroundImage:
+                          (imageUrl != null && imageUrl!.isNotEmpty)
                           ? NetworkImage(imageUrl!)
-                          : const NetworkImage('https://i.pravatar.cc/300?img=47'),
+                          : null,
+                      child: (imageUrl == null || imageUrl!.isEmpty)
+                          ? const Icon(
+                              Icons.person,
+                              size: 54,
+                              color: AppColors.white,
+                            )
+                          : null,
                     ),
                   ),
                   if (onCameraTap != null)
@@ -77,10 +85,15 @@ class ProfileHeader extends StatelessWidget {
                           decoration: BoxDecoration(
                             color: AppColors.warmCoral,
                             shape: BoxShape.circle,
-                            border: Border.all(color: AppColors.white, width: 2),
+                            border: Border.all(
+                              color: AppColors.white,
+                              width: 2,
+                            ),
                             boxShadow: [
                               BoxShadow(
-                                color: AppColors.darkBrown.withValues(alpha: 0.15),
+                                color: AppColors.darkBrown.withValues(
+                                  alpha: 0.15,
+                                ),
                                 blurRadius: 6,
                                 offset: const Offset(0, 2),
                               ),
@@ -105,14 +118,11 @@ class ProfileHeader extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24),
           child: Text(
-            name.isNotEmpty ? name : 'Yomna Abdelmeged',
+            name.isNotEmpty ? name : 'CookJar Chef',
             textAlign: TextAlign.center,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
-            style: AppStyles.bold24.copyWith(
-              color: AppColors.darkBrown,
-              height: 1.2,
-            ),
+            style: AppStyles.bold24,
           ),
         ),
         const Gap(4),
@@ -126,9 +136,7 @@ class ProfileHeader extends StatelessWidget {
               textAlign: TextAlign.center,
               maxLines: 1,
               overflow: TextOverflow.ellipsis,
-              style: AppStyles.medium14.copyWith(
-                color: Colors.grey.shade600,
-              ),
+              style: AppStyles.medium14.copyWith(color: Colors.grey.shade600),
             ),
           ),
       ],

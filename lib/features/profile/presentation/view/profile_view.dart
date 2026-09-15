@@ -6,11 +6,13 @@ import 'package:cookjar/features/profile/presentation/view/widgets/profile_actio
 import 'package:cookjar/features/profile/presentation/view/widgets/profile_header.dart';
 import 'package:cookjar/features/profile/presentation/view/widgets/profile_logout_dialog.dart';
 import 'package:cookjar/features/profile/presentation/view/widgets/profile_stats_section.dart';
+import 'package:cookjar/core/routes/routes.dart';
 import 'package:cookjar/features/profile/presentation/view_model/profile_cubit.dart';
 import 'package:cookjar/features/profile/presentation/view_model/profile_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 
 class ProfileView extends StatelessWidget {
   const ProfileView({super.key});
@@ -93,9 +95,6 @@ class _ProfileViewContent extends StatelessWidget {
                       name: profile.name,
                       email: profile.email,
                       imageUrl: profile.profileImage,
-                      onCameraTap: () {
-                        // Image picker trigger point
-                      },
                     ),
 
                     const Gap(24),
@@ -116,8 +115,14 @@ class _ProfileViewContent extends StatelessWidget {
                           ProfileActionTile(
                             icon: Icons.person_outline_rounded,
                             title: "Edit Profile",
-                            onTap: () {
-                              // Edit Profile action
+                            onTap: () async {
+                              await context.push(
+                                Routes.editProfile,
+                                extra: profile,
+                              );
+                              if (context.mounted) {
+                                context.read<ProfileCubit>().fetchProfile();
+                              }
                             },
                           ),
                           const Gap(16),

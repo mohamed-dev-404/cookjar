@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:cookjar/core/errors/exceptions/app_exception.dart';
 import 'package:cookjar/features/profile/data/data_source/profile_local_data_source.dart';
 import 'package:cookjar/features/profile/data/data_source/profile_remote_data_source.dart';
@@ -28,9 +29,9 @@ class ProfileRepoImpl implements ProfileRepo {
   }
 
   @override
-  Future<void> updateProfile(ProfileModel profile) async {
+  Future<void> updateProfile(ProfileModel profile, {File? newImage}) async {
     try {
-      await remoteDataSource.updateUserProfile(profile);
+      await remoteDataSource.updateUserProfile(profile, newImage: newImage);
     } on AppException {
       rethrow;
     } catch (e) {

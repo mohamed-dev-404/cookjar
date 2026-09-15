@@ -17,4 +17,5 @@ class Routes {
   //* Other
   static const String searchView = '/search-view';
   static const String recipeDetails = '/recipe-details';
+  static const String editProfile = '/edit-profile';
 }

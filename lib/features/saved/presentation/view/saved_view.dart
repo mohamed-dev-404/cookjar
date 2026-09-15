@@ -63,78 +63,81 @@ class SavedView extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-          children: [
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/1.webp',
-              title:
-                  'Classic Margherita Pizza Classic Margherita Pizza Classic Margherita Pizza',
-              cookingTime: '30 min',
-              servings: '4 servings',
-              rating: 4.5,
-              onTap: () => context.push(Routes.recipeDetails, extra: 1),
-            ),
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            children: [
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/1.webp',
+                title:
+                    'Classic Margherita Pizza Classic Margherita Pizza Classic Margherita Pizza',
+                cookingTime: '30 min',
+                servings: '4 servings',
+                rating: 4.5,
+                onTap: () => context.push(Routes.recipeDetails, extra: 1),
+              ),
 
-            SizedBox(height: 25),
+              SizedBox(height: 25),
 
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/2.webp',
-              title: 'Recipe Title 2',
-              cookingTime: '45 min',
-              servings: '6 servings',
-              rating: 4.8,
-              onTap: () => context.push(Routes.recipeDetails, extra: 2),
-            ),
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/2.webp',
+                title: 'Recipe Title 2',
+                cookingTime: '45 min',
+                servings: '6 servings',
+                rating: 4.8,
+                onTap: () => context.push(Routes.recipeDetails, extra: 2),
+              ),
 
-            SizedBox(height: 25),
+              SizedBox(height: 25),
 
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/3.webp',
-              title: 'Recipe Title 3',
-              cookingTime: '20 min',
-              servings: '2 servings',
-              rating: 4.2,
-              onTap: () => context.push(Routes.recipeDetails, extra: 3),
-            ),
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/3.webp',
+                title: 'Recipe Title 3',
+                cookingTime: '20 min',
+                servings: '2 servings',
+                rating: 4.2,
+                onTap: () => context.push(Routes.recipeDetails, extra: 3),
+              ),
 
-            SizedBox(height: 25),
+              SizedBox(height: 25),
 
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/4.webp',
-              title: 'Recipe Title 3',
-              cookingTime: '20 min',
-              servings: '2 servings',
-              rating: 4.2,
-            ),
-            const SizedBox(height: 32),
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/4.webp',
+                title: 'Recipe Title 3',
+                cookingTime: '20 min',
+                servings: '2 servings',
+                rating: 4.2,
+              ),
+              const SizedBox(height: 32),
 
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/5.webp',
-              title: 'Recipe Title 3',
-              cookingTime: '20 min',
-              servings: '2 servings',
-              rating: 4.2,
-            ),
-            const SizedBox(height: 32),
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/5.webp',
+                title: 'Recipe Title 3',
+                cookingTime: '20 min',
+                servings: '2 servings',
+                rating: 4.2,
+              ),
+              const SizedBox(height: 32),
 
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/6.webp',
-              title: 'Recipe Title 3',
-              cookingTime: '20 min',
-              servings: '2 servings',
-              rating: 4.2,
-            ),
-            const SizedBox(height: 32),
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/6.webp',
+                title: 'Recipe Title 3',
+                cookingTime: '20 min',
+                servings: '2 servings',
+                rating: 4.2,
+              ),
+              const SizedBox(height: 32),
 
-            SavedRecipeCard(
-              imageUrl: 'https://cdn.dummyjson.com/recipe-images/7.webp',
-              title: 'Recipe Title 3',
-              cookingTime: '20 min',
-              servings: '2 servings',
-              rating: 4.2,
-            ),
-            const SizedBox(height: 32),
-          ],
+              SavedRecipeCard(
+                imageUrl: 'https://cdn.dummyjson.com/recipe-images/7.webp',
+                title: 'Recipe Title 3',
+                cookingTime: '20 min',
+                servings: '2 servings',
+                rating: 4.2,
+              ),
+              const SizedBox(height: 32),
+            ],
+          ),
         ),
       ),
     );

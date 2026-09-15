@@ -18,13 +18,21 @@ class ProfileModel {
     this.savedRecipesCount = 0,
   });
 
-  /// Factory constructor for creating a ProfileModel from Firestore map
-  factory ProfileModel.fromJson(Map<String, dynamic> json, {required String fallbackId}) {
+  factory ProfileModel.fromJson(
+    Map<String, dynamic> json, {
+    required String fallbackId,
+  }) {
     return ProfileModel(
       userId: json['userId'] as String? ?? fallbackId,
-      name: json['name'] as String? ?? json['displayName'] as String? ?? 'CookJar User',
+      name:
+          json['name'] as String? ??
+          json['displayName'] as String? ??
+          'CookJar User',
       email: json['email'] as String? ?? '',
-      profileImage: json['profileImage'] as String? ?? json['photoURL'] as String? ?? '',
+      profileImage:
+          json['profileImageUrl'] as String? ??
+          json['photoURL'] as String? ??
+          '',
       favoriteMeal: json['favoriteMeal'] as String? ?? 'Dinner 🍝',
       savedRecipesCount: (json['savedRecipesCount'] as num?)?.toInt() ?? 0,
     );
@@ -36,7 +44,7 @@ class ProfileModel {
       'userId': userId,
       'name': name,
       'email': email,
-      'profileImage': profileImage,
+      'profileImageUrl': profileImage,
       'favoriteMeal': favoriteMeal,
       'savedRecipesCount': savedRecipesCount,
     };
