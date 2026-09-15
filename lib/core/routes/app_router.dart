@@ -4,6 +4,7 @@ import 'package:cookjar/features/auth/presentation/login/view_model/login_cubit.
 import 'package:cookjar/features/auth/presentation/register/view/register_view.dart';
 import 'package:cookjar/features/auth/presentation/register/view_model/register_cubit.dart';
 import 'package:cookjar/features/complete_profile/presentation/view/complete_profile_view.dart';
+import 'package:cookjar/features/complete_profile/presentation/view_model/complete_profile_cubit.dart';
 import 'package:cookjar/features/main/presentation/view/main_view.dart';
 import 'package:cookjar/features/recipe_details/presentation/view/recipe_details_view.dart';
 import 'package:cookjar/features/recipe_details/presentation/view_model/recipe_details_cubit.dart';
@@ -48,7 +49,13 @@ class AppRouter {
       ),
       GoRoute(
         path: Routes.completeProfile,
-        builder: (context, state) => const CompleteProfileView(),
+        builder: (context, state) {
+          final name = state.extra as String? ?? '';
+          return BlocProvider(
+            create: (context) => getIt<CompleteProfileCubit>(),
+            child: CompleteProfileView(name: name),
+          );
+        },
       ),
 
       // * Main view

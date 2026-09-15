@@ -13,7 +13,7 @@ class ProfileRemoteDataSourceImpl implements ProfileRemoteDataSource {
   final FirebaseAuth _firebaseAuth;
 
   ProfileRemoteDataSourceImpl({FirebaseAuth? firebaseAuth})
-      : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
+    : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance;
 
   @override
   Future<ProfileModel> getUserProfile() async {

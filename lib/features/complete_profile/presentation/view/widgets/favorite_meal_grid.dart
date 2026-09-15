@@ -2,7 +2,6 @@ import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/enums/favorite_meal.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:gap/gap.dart';
 
 class FavoriteMealGrid extends StatelessWidget {
   const FavoriteMealGrid({

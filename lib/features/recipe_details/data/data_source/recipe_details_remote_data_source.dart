@@ -5,7 +5,8 @@ abstract class RecipeDetailsRemoteDataSource {
   Future<RecipeDetailsModel> getRecipeDetails({required int recipeId});
 }
 
-class RecipeDetailsRemoteDataSourceImpl implements RecipeDetailsRemoteDataSource {
+class RecipeDetailsRemoteDataSourceImpl
+    implements RecipeDetailsRemoteDataSource {
   final ApiConsumer apiConsumer;
 
   const RecipeDetailsRemoteDataSourceImpl({required this.apiConsumer});

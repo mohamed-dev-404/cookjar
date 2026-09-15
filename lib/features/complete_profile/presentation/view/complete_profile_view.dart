@@ -1,10 +1,11 @@
-import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/features/complete_profile/presentation/view/widgets/complete_profile_form.dart';
 import 'package:flutter/material.dart';
 import 'package:gap/gap.dart';
 
 class CompleteProfileView extends StatelessWidget {
-  const CompleteProfileView({super.key});
+  final String name;
+
+  const CompleteProfileView({super.key, required this.name});
 
   @override
   Widget build(BuildContext context) {
@@ -12,10 +13,7 @@ class CompleteProfileView extends StatelessWidget {
       body: Stack(
         children: [
           Positioned.fill(
-            child: Image.asset(
-              'assets/images/bg.png',
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/images/bg.png', fit: BoxFit.cover),
           ),
           SafeArea(
             child: Padding(
@@ -24,12 +22,9 @@ class CompleteProfileView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   const Gap(8),
-                  IconButton(
-                    onPressed: () => Navigator.pop(context),
-                    icon: const Icon(Icons.arrow_back),
-                  ),
+
                   const Gap(8),
-                  const CompleteProfileForm(),
+                  CompleteProfileForm(name: name),
                 ],
               ),
             ),

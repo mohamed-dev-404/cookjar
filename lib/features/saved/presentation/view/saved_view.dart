@@ -83,6 +83,7 @@ class SavedView extends StatelessWidget {
               cookingTime: '45 min',
               servings: '6 servings',
               rating: 4.8,
+              onTap: () => context.push(Routes.recipeDetails, extra: 2),
             ),
 
             SizedBox(height: 25),
@@ -93,6 +94,7 @@ class SavedView extends StatelessWidget {
               cookingTime: '20 min',
               servings: '2 servings',
               rating: 4.2,
+              onTap: () => context.push(Routes.recipeDetails, extra: 3),
             ),
 
             SizedBox(height: 25),
