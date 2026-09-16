@@ -10,8 +10,8 @@ class SavedRecipeList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // Demo recipes list
-    final List<RecipeDetailsModel> recipes = [
-      const RecipeDetailsModel(
+    final List<RecipeModel> recipes = [
+      const RecipeModel(
         id: 1,
         name:
             'Classic Margherita Pizza Classic Margherita Pizza Classic Margherita Pizza',
@@ -24,7 +24,7 @@ class SavedRecipeList extends StatelessWidget {
         ingredients: [],
         instructions: [],
       ),
-      const RecipeDetailsModel(
+      const RecipeModel(
         id: 2,
         name: 'Recipe Title 2',
         image: 'https://cdn.dummyjson.com/recipe-images/2.webp',
@@ -36,7 +36,7 @@ class SavedRecipeList extends StatelessWidget {
         ingredients: [],
         instructions: [],
       ),
-      const RecipeDetailsModel(
+      const RecipeModel(
         id: 3,
         name: 'Recipe Title 3',
         image: 'https://cdn.dummyjson.com/recipe-images/3.webp',
@@ -48,7 +48,7 @@ class SavedRecipeList extends StatelessWidget {
         ingredients: [],
         instructions: [],
       ),
-      const RecipeDetailsModel(
+      const RecipeModel(
         id: 4,
         name: 'Recipe Title 4',
         image: 'https://cdn.dummyjson.com/recipe-images/4.webp',
@@ -60,7 +60,7 @@ class SavedRecipeList extends StatelessWidget {
         ingredients: [],
         instructions: [],
       ),
-      const RecipeDetailsModel(
+      const RecipeModel(
         id: 5,
         name: 'Recipe Title 5',
         image: 'https://cdn.dummyjson.com/recipe-images/5.webp',
@@ -72,7 +72,7 @@ class SavedRecipeList extends StatelessWidget {
         ingredients: [],
         instructions: [],
       ),
-      const RecipeDetailsModel(
+      const RecipeModel(
         id: 6,
         name: 'Recipe Title 6',
         image: 'https://cdn.dummyjson.com/recipe-images/6.webp',
@@ -84,7 +84,7 @@ class SavedRecipeList extends StatelessWidget {
         ingredients: [],
         instructions: [],
       ),
-      const RecipeDetailsModel(
+      const RecipeModel(
         id: 7,
         name: 'Recipe Title 7',
         image: 'https://cdn.dummyjson.com/recipe-images/7.webp',

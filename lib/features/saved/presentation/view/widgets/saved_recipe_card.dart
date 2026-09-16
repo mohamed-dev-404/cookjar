@@ -15,7 +15,7 @@ class SavedRecipeCard extends StatelessWidget {
     this.isFavorite = true,
   });
 
-  final RecipeDetailsModel recipe;
+  final RecipeModel recipe;
   final VoidCallback? onTap;
   final VoidCallback? onFavoriteTap;
   final bool isFavorite;

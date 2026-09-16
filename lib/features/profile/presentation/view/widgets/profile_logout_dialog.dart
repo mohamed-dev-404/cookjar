@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 class ProfileLogoutDialog extends StatelessWidget {
   final VoidCallback onConfirm;
 
-  const ProfileLogoutDialog({
-    super.key,
-    required this.onConfirm,
-  });
+  const ProfileLogoutDialog({super.key, required this.onConfirm});
 
-  static Future<void> show(BuildContext context, {required VoidCallback onConfirm}) {
+  static Future<void> show(
+    BuildContext context, {
+    required VoidCallback onConfirm,
+  }) {
     return showDialog(
       context: context,
       builder: (context) => ProfileLogoutDialog(onConfirm: onConfirm),

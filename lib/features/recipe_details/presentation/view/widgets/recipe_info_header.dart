@@ -10,7 +10,7 @@ import 'package:flutter/material.dart';
 class RecipeInfoHeader extends StatelessWidget {
   const RecipeInfoHeader({super.key, required this.recipe});
 
-  final RecipeDetailsModel recipe;
+  final RecipeModel recipe;
 
   @override
   Widget build(BuildContext context) {
@@ -44,7 +44,10 @@ class RecipeInfoHeader extends StatelessWidget {
                     color: AppColors.goldenHoney,
                   ),
                   const SizedBox(width: 4),
-                  Text(recipe.rating.toStringAsFixed(1), style: AppStyles.bold14),
+                  Text(
+                    recipe.rating.toStringAsFixed(1),
+                    style: AppStyles.bold14,
+                  ),
                 ],
               ),
             ),

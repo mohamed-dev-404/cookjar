@@ -10,11 +10,11 @@ class HomeWelcomeText extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Unbox Today\'s Recipe Magic!', style: AppStyles.bold24),
+        Text('Unbox Today\'s Recipe Magic!', style: AppStyles.bold20),
         const Gap(8),
         Text(
           'Shake your jar to pick a delicious surprise.',
-          style: AppStyles.regular16,
+          style: AppStyles.regular14,
         ),
       ],
     );

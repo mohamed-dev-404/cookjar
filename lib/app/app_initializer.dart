@@ -7,6 +7,7 @@ import 'package:cookjar/core/services/cache/secure_storage/secure_storage_servic
 import 'package:cookjar/core/services/cache/shred_pref/shared_pref_service.dart';
 import 'package:cookjar/core/logging/app_bloc_observer.dart';
 import 'package:cookjar/core/di/service_locator.dart';
+import 'package:cookjar/core/services/cache/hive/hive_service.dart';
 import '../core/logging/app_logger.dart';
 
 class AppInitializer {
@@ -36,6 +37,10 @@ class AppInitializer {
       //* (6) Setup service locator (GetIt)
       // Registers all app services and dependencies
       _initServiceLocator();
+
+      //* (7) Initialize Hive
+      // Must run after service locator so getIt<HiveService>() is available.
+      await _initHive();
 
       //* Final success log
       AppLogger.success(
@@ -109,5 +114,10 @@ class AppInitializer {
     setupServiceLocator();
 
     AppLogger.success('Service locator initialized successfully', tag: 'GetIt');
+  }
+
+  /// Initializes [HiveService] after it has been registered in GetIt.
+  static Future<void> _initHive() async {
+    await getIt<HiveService>().init();
   }
 }

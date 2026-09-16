@@ -12,6 +12,7 @@ import 'package:cookjar/features/splash/splash.dart';
 import 'package:cookjar/features/profile/data/models/profile_model.dart';
 import 'package:cookjar/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:cookjar/features/profile/presentation/view_model/profile_cubit.dart';
+import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -67,21 +68,20 @@ class AppRouter {
       ),
 
       // * Recipe details view
-      // Expects `extra` to be the recipe's int id, e.g.:
-      //   context.push(Routes.recipeDetails, extra: recipe.id);
+      // Expects `extra` to be the recipe's model, e.g.:
+      //   context.push(Routes.recipeDetails, extra: recipe);
       GoRoute(
         path: Routes.recipeDetails,
         builder: (context, state) {
-          final recipeId = state.extra;
-          if (recipeId is! int) {
+          final recipe = state.extra;
+          if (recipe is! RecipeModel) {
             return const Scaffold(
-              body: Center(child: Text('Invalid or missing recipe id')),
+              body: Center(child: Text('Invalid or missing recipe data')),
             );
           }
           return BlocProvider(
             create: (context) =>
-                getIt<RecipeDetailsCubit>()
-                  ..getRecipeDetails(recipeId: recipeId),
+                getIt<RecipeDetailsCubit>()..loadRecipeDetails(recipe),
             child: const RecipeDetailsView(),
           );
         },

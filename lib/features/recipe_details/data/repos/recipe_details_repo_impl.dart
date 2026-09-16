@@ -8,7 +8,7 @@ class RecipeDetailsRepoImpl implements RecipeDetailsRepo {
   const RecipeDetailsRepoImpl({required this.remoteDataSource});
 
   @override
-  Future<RecipeDetailsModel> getRecipeDetails({required int recipeId}) {
+  Future<RecipeModel> getRecipeDetails({required int recipeId}) {
     return remoteDataSource.getRecipeDetails(recipeId: recipeId);
   }
 }

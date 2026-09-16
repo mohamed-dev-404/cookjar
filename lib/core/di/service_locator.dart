@@ -16,6 +16,14 @@ import 'package:cookjar/features/recipe_details/data/data_source/recipe_details_
 import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo.dart';
 import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:cookjar/features/recipe_details/presentation/view_model/recipe_details_cubit.dart';
+import 'package:cookjar/features/saved/data/data_sources/local/saved_local_data_source.dart';
+import 'package:cookjar/features/saved/data/repositories/saved_repo.dart';
+import 'package:cookjar/features/saved/data/repositories/saved_repo_impl.dart';
+import 'package:cookjar/features/saved/presentation/view_model/add_saved_recipe_cubit/add_saved_recipe_cubit.dart';
+import 'package:cookjar/features/saved/presentation/view_model/saved_recipes_cubit/saved_recipes_cubit.dart';
+import 'package:cookjar/features/jar/data/repo/recipe_repo.dart';
+import 'package:cookjar/features/jar/data/repo/recipe_repo_impl.dart';
+import 'package:cookjar/core/services/cache/hive/hive_service.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 import 'package:cookjar/core/services/network/api_consumer.dart';
@@ -27,6 +35,9 @@ final GetIt getIt = GetIt.instance;
 
 //* This function will be called in the main function before running the app
 void setupServiceLocator() {
+  //! Cache services
+  getIt.registerSingleton<HiveService>(HiveService());
+
   //! shared network services
   getIt.registerLazySingleton<Dio>(() => Dio());
   getIt.registerLazySingleton<ApiConsumer>(() => DioConsumer(getIt<Dio>()));
@@ -49,12 +60,19 @@ void setupServiceLocator() {
     () => RegisterCubit(authRepo: getIt<AuthRepo>()),
   );
 
+  //! Jar Feature
+  getIt.registerLazySingleton<RecipeRepo>(
+    () => RecipeRepoImpl(getIt<ApiConsumer>()),
+  );
+
   //! Complete Profile Feature
   getIt.registerLazySingleton<CompleteProfileRemoteDataSource>(
     () => CompleteProfileRemoteDataSourceImpl(),
   );
   getIt.registerLazySingleton<CompleteProfileRepo>(
-    () => CompleteProfileRepoImpl(remoteDataSource: getIt<CompleteProfileRemoteDataSource>()),
+    () => CompleteProfileRepoImpl(
+      remoteDataSource: getIt<CompleteProfileRemoteDataSource>(),
+    ),
   );
   getIt.registerFactory<CompleteProfileCubit>(
     () => CompleteProfileCubit(repo: getIt<CompleteProfileRepo>()),
@@ -92,5 +110,19 @@ void setupServiceLocator() {
   //? Cubit
   getIt.registerFactory<RecipeDetailsCubit>(
     () => RecipeDetailsCubit(recipeDetailsRepo: getIt<RecipeDetailsRepo>()),
+  );
+
+  //! Saved Feature
+  getIt.registerLazySingleton<SavedLocalDataSource>(
+    () => SavedLocalDataSourceImpl(hiveService: getIt<HiveService>()),
+  );
+  getIt.registerLazySingleton<SavedRepo>(
+    () => SavedRepoImpl(localDataSource: getIt<SavedLocalDataSource>()),
+  );
+  getIt.registerFactory<AddSavedRecipeCubit>(
+    () => AddSavedRecipeCubit(savedRepo: getIt<SavedRepo>()),
+  );
+  getIt.registerFactory<SavedRecipesCubit>(
+    () => SavedRecipesCubit(savedRepo: getIt<SavedRepo>()),
   );
 }

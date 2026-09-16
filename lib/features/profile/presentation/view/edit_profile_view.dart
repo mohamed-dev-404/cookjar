@@ -123,8 +123,8 @@ class _EditProfileViewState extends State<EditProfileView> {
                             backgroundImage: _selectedImage != null
                                 ? FileImage(_selectedImage!)
                                 : imageProviderFromUrl(
-                                      widget.profile.profileImage,
-                                    ),
+                                    widget.profile.profileImage,
+                                  ),
                             child:
                                 (_selectedImage == null &&
                                     widget.profile.profileImage.isEmpty)

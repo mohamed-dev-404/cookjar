@@ -15,8 +15,8 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
   HomeRemoteDataSourceImpl({
     FirebaseAuth? firebaseAuth,
     FirebaseFirestore? firestore,
-  })  : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
-        _firestore = firestore ?? FirebaseFirestore.instance;
+  }) : _firebaseAuth = firebaseAuth ?? FirebaseAuth.instance,
+       _firestore = firestore ?? FirebaseFirestore.instance;
 
   @override
   Future<HomeUserModel> getCurrentUser() async {
@@ -24,7 +24,9 @@ class HomeRemoteDataSourceImpl implements HomeRemoteDataSource {
       final user = _firebaseAuth.currentUser;
       if (user == null) {
         throw HomeException(
-          errorModel: const ErrorModel(errorMessage: 'User is not authenticated'),
+          errorModel: const ErrorModel(
+            errorMessage: 'User is not authenticated',
+          ),
         );
       }
 

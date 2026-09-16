@@ -30,8 +30,7 @@ class RecipeDetailsView extends StatelessWidget {
       body: BlocBuilder<RecipeDetailsCubit, RecipeDetailsState>(
         builder: (context, state) {
           return switch (state) {
-            RecipeDetailsInitial() ||
-            RecipeDetailsLoading() => const Center(
+            RecipeDetailsInitial() || RecipeDetailsLoading() => const Center(
               child: AnimatedLoadingWidget(),
             ),
             RecipeDetailsError(:final errorMessage) => SafeArea(

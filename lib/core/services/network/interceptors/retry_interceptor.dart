@@ -4,16 +4,10 @@ class RetryInterceptor extends Interceptor {
   final Dio dio;
   final int maxRetries;
 
-  RetryInterceptor(
-    this.dio, {
-    this.maxRetries = 3,
-  });
+  RetryInterceptor(this.dio, {this.maxRetries = 3});
 
   @override
-  Future onError(
-    DioException err,
-    ErrorInterceptorHandler handler,
-  ) async {
+  Future onError(DioException err, ErrorInterceptorHandler handler) async {
     final request = err.requestOptions;
 
     //  Retry only GET requests (to Prevents Multiple POST)

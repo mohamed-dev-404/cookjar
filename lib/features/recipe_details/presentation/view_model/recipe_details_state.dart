@@ -15,12 +15,12 @@ final class RecipeDetailsLoading extends RecipeDetailsState {
 }
 
 final class RecipeDetailsLoaded extends RecipeDetailsState {
-  final RecipeDetailsModel recipe;
+  final RecipeModel recipe;
   final bool isFavorite;
 
   const RecipeDetailsLoaded({required this.recipe, this.isFavorite = false});
 
-  RecipeDetailsLoaded copyWith({RecipeDetailsModel? recipe, bool? isFavorite}) {
+  RecipeDetailsLoaded copyWith({RecipeModel? recipe, bool? isFavorite}) {
     return RecipeDetailsLoaded(
       recipe: recipe ?? this.recipe,
       isFavorite: isFavorite ?? this.isFavorite,
