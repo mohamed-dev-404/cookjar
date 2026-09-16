@@ -1,80 +1,114 @@
 <div align="center">
 
-# 🫙 CookJar
+<img src="assets\images\logo.png" width="110" alt="CookJar Logo" />
 
-### Shake. Pick. Cook.
+<img src="assets\images\name.png" width="260" alt="CookJar" />
 
-*Good Food, Happy Mood.*
+### Shake the Jar. Get a Recipe. Cook it.
 
-![Flutter](https://img.shields.io/badge/Flutter-3.12-02569B?style=for-the-badge&logo=flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-3.12-0175C2?style=for-the-badge&logo=dart&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-Auth-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
-![State Management](https://img.shields.io/badge/State-Bloc%2FCubit-6C4E9C?style=for-the-badge)
-![Status](https://img.shields.io/badge/status-in%20development-FF8A00?style=for-the-badge)
+A fun, minimal recipe discovery app built around an interactive **Recipe Jar** — shake it, and let it surprise you with something delicious.
+
+[![Flutter](https://img.shields.io/badge/Flutter-3.x-02569B?logo=flutter&logoColor=white)](https://flutter.dev)
+[![Dart](https://img.shields.io/badge/Dart-3.x-0175C2?logo=dart&logoColor=white)](https://dart.dev)
+[![Firebase](https://img.shields.io/badge/Firebase-Auth-FFCA28?logo=firebase&logoColor=black)](https://firebase.google.com)
+[![Hive](https://img.shields.io/badge/Hive-Local%20Storage-FFB800)](https://pub.dev/packages/hive)
+[![State Management](https://img.shields.io/badge/State%20Management-Cubit-3EC486)](https://bloclibrary.dev)
 
 </div>
 
 ---
 
-## 🍽️ What is CookJar?
+## 📖 Overview
 
-Can't decide what to cook? **Shake the jar.**
+**CookJar** turns recipe discovery into a small daily ritual. Instead of scrolling endlessly through a recipe feed, users tap **Shake the Jar** and get a random recipe pulled straight from the jar — with the option to reshake, view full details, or save it to their personal collection for later.
 
-CookJar turns "what should I eat today?" into a small moment of fun instead of another decision to make. Shake the jar, get a recipe, and start cooking — with full ingredients, step-by-step instructions, and a place to keep the ones you love.
+The app is built as a portfolio-grade Flutter project, demonstrating clean architecture, REST API integration, Firebase Authentication, local persistence with Hive, and Cubit-based state management.
 
-> Simple Recipes. Big Happiness.
+```
+Shake the Jar → Get a Recipe → View Details → Save it for Later
+```
 
-## 🎥 Presentation
+---
 
-<!-- 🔗 TODO: add your presentation link here -->
-**[▶ Watch the project presentation]([PRESENTATION_LINK_HERE](https://canva.link/a6b7dukfi0r1u88))**
+## 📱 App Showcase
 
-## 🎨 Design System
+<div align="center">
+<img src="assets\images\CookJar-poster.png" width="850" alt="CookJar App Showcase" />
+</div>
 
-CookJar's look is warm, playful, and food-first — built around a jar you can actually shake.
-
-<p align="center">
-  <img width="1254" height="1254" alt="design-system" src="https://github.com/user-attachments/assets/879bcde1-94b7-47de-b739-1ece066aaece" />
-</p>
-
-| Token | Value | Swatch |
-|---|---|---|
-| Warm Coral | `#FF8A00` | 🟧 |
-| Golden Honey | `#FFB800` | 🟨 |
-| Fresh Mint | `#2EC4B6` | 🟩 |
-| Off-White | `#FAFAFA` | ⬜ |
-| Surface White | `#F5F5F5` | ⬜ |
-
-**Typography:** [Poppins](https://fonts.google.com/specimen/Poppins) for headings, [Inter](https://fonts.google.com/specimen/Inter) for body text.
-
-<!--
-| Home | Shake the Jar | Recipe Details | Saved |
-|---|---|---|---|
-| <img src="docs/readme/screenshots/home.png" width="200"> | <img src="docs/readme/screenshots/jar.png" width="200"> | <img src="docs/readme/screenshots/recipe_details.png" width="200"> | <img src="docs/readme/screenshots/saved.png" width="200"> |
--->
+---
 
 ## ✨ Features
 
-- 🫙 **Shake the Jar** — shake to get a random recipe suggestion
-- 🔐 **Auth** — email/password sign up & login via Firebase
-- 👤 **Personalized Profile** — favorite meal, saved recipe count, editable profile
-- 🍳 **Recipe Details** — ingredients, step-by-step instructions, time, servings, and calories at a glance
-- ❤️ **Save to "My Love"** — build a personal collection of favorite recipes
-- 🎨 **Consistent design system** — one warm, cohesive visual language across every screen
+- 🔐 **Firebase Authentication** — email/password sign up, login, and session persistence
+- 📝 **Guided Onboarding** — lightweight "Complete Profile" step (photo, display name, favorite meal type)
+- 🫙 **Interactive Recipe Jar** — a playful shake animation that surfaces a random recipe from the API
+- 🍽️ **Recipe Details** — hero image, ratings, prep/cook time, servings, difficulty, ingredients, and step-by-step instructions
+- ❤️ **Favorites ("Love") with Hive** — save recipes locally for offline access
+- 👤 **Profile & Stats** — displays loved-recipes count, favorite meal tag, and account actions
+- 🎨 **Custom Design System** — a cohesive color palette, icon set, and reusable UI components
+
+---
+
+## 🧠 App Flow
+
+```
+Splash Screen
+  ├── Authentication
+  │     ├── Login
+  │     ├── Register
+  │     └── Complete Profile
+  └── Main App (Bottom Navigation)
+        ├── Home            → Shake the Jar → Recipe Preview → Recipe Details
+        ├── Love             → Saved Recipes → Shake From Favorites
+        └── Profile          → Stats & Account Settings
+```
+
+**Home Jar** pulls from all API recipes (online discovery), while the **Love Jar** shakes strictly through your Hive-saved favorites.
+
+---
 
 ## 🛠️ Tech Stack
 
-| Layer | Tools |
+| Layer | Technology |
 |---|---|
-| Framework | Flutter, Dart |
-| State Management | flutter_bloc (Cubit) |
-| Dependency Injection | get_it |
-| Routing | go_router |
-| Networking | dio |
-| Auth | firebase_auth |
-| Local Storage | shared_preferences, flutter_secure_storage |
-| Config | flutter_dotenv |
-| Animations | lottie |
+| Framework | Flutter |
+| Language | Dart |
+| Authentication | Firebase Authentication |
+| Recipe Data | [DummyJSON Recipes API](https://dummyjson.com/recipes) |
+| Local Storage | Hive |
+| State Management | Cubit |
+| Architecture | Clean Architecture (feature-first) |
+
+---
+
+
+## 🌐 API Reference
+
+CookJar fetches recipe data from the free [DummyJSON Recipes API](https://dummyjson.com/recipes):
+
+```
+GET https://dummyjson.com/recipes
+```
+
+Each recipe includes ingredients, step-by-step instructions, prep/cook time, servings, difficulty, cuisine, calories, tags, rating, and image — everything needed to power the Recipe Details screen.
+
+---
+
+## 🎨 Design System
+
+| Color | Hex |
+|---|---|
+| 🟠 Warm Coral | `#FF6B4A` |
+| 🟡 Golden Honey | `#FFB800` |
+| 🟢 Fresh Mint | `#3EC486` |
+| ⚪ Off-White | `#FAFAFA` |
+| ⚪ Surface White | `#FFFFFF` |
+
+> See the swatches in the [App Showcase](#-app-showcase) image above for the full visual palette and icon set.
+
+---
+
 
 ## 🏗️ Architecture
 
@@ -98,48 +132,60 @@ lib/
 
 Data flows one way: **View → Cubit → Repo → Remote Data Source → API**, with every dependency wired through `get_it` and every screen reacting to a typed, sealed `State`.
 
+---
+
 ## 🚀 Getting Started
 
-```bash
-# 1. Clone the repo
-git clone <your-repo-url>
-cd cookjar
+### Prerequisites
 
-# 2. Install dependencies
-flutter pub get
+- [Flutter SDK](https://docs.flutter.dev/get-started/install) (stable channel)
+- A configured [Firebase](https://firebase.google.com) project (for Authentication)
+- Android Studio / VS Code with the Flutter & Dart plugins
 
-# 3. Add your environment file
-# Create a .env file in the project root with:
-# BASE_URL=https://dummyjson.com
-# FIREBASE_WEB_API_KEY=...
-# (see .env.example if available)
+### Installation
 
-# 4. Run the app
-flutter run
-```
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/mohamed-dev-404/cookjar.git
+   cd cookjar
+   ```
 
-## 👥 Team
+2. **Install dependencies**
+   ```bash
+   flutter pub get
+   ```
 
-<!-- TODO: add your team -->
+3. **Set up Firebase**
+   - Create a project in the [Firebase Console](https://console.firebase.google.com/)
+   - Enable **Email/Password Authentication**
+   - Add your Android/iOS app and download `google-services.json` / `GoogleService-Info.plist`
+   - Generate `firebase_options.dart` using the FlutterFire CLI:
+     ```bash
+     flutterfire configure
+     ```
 
-| Name              |
-| ----------------- |
-| Nouran Nasser     |
-| Yomna Abdelmedeed |
-| Mohamed Ibrahim   |
-| Aya Eid           |
-| Radwa Mahmoud            |
+4. **Run the app**
+   ```bash
+   flutter run
+   ```
 
+---
 
-## 📄 License
+## 🧩 Core Screens
 
-<!-- TODO: add a license if this project has one -->
-This project is for educational purposes.
+| Screen | Description |
+|---|---|
+| Splash | Checks auth state and routes to Login or Home |
+| Login / Register | Firebase-backed authentication flow |
+| Complete Profile | Collects display name, photo, and favorite meal type |
+| Home | Hosts the interactive jar and "Shake the Jar" flow |
+| Recipe Details | Full recipe view with ingredients, instructions, and favorite toggle |
+| Love | Saved favorites, backed by Hive|
+| Profile | User info, stats, and account actions |
+
 
 ---
 
 <div align="center">
-
-**Made with 🧡 and a little shaking.**
-
+Made with 💛 and Flutter
 </div>
