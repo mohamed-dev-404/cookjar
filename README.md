@@ -34,7 +34,7 @@ CookJar turns "what should I eat today?" into a small moment of fun instead of a
 CookJar's look is warm, playful, and food-first — built around a jar you can actually shake.
 
 <p align="center">
-  <img src="docs/readme/design-system.png" alt="CookJar design system — colors, typography, and app screens" width="100%">
+  <img width="1254" height="1254" alt="design-system" src="https://github.com/user-attachments/assets/879bcde1-94b7-47de-b739-1ece066aaece" />
 </p>
 
 | Token | Value | Swatch |
