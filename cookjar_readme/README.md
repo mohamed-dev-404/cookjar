@@ -128,10 +128,15 @@ flutter run
 ## 👥 Team
 
 <!-- TODO: add your team -->
-| Name | Role | GitHub |
-|---|---|---|
-| Nouran Nasser | Recipe Details | [@nourannasser2210](https://github.com/nourannasser2210) |
-| | | |
+
+| Name              |
+| ----------------- |
+| Nouran Nasser     |
+| Yomna Abdelmedeed |
+| Mohamed Ibrahim   |
+| Aya Eid           |
+| Rawda             |
+
 
 ## 📄 License
 
