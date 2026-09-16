@@ -15,7 +15,7 @@
 import 'package:cookjar/core/constants/api_endpoints.dart';
 import 'package:cookjar/core/errors/exceptions/api_exception.dart';
 import 'package:cookjar/core/services/network/api_consumer.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:dartz/dartz.dart';
 import 'recipe_repo.dart';
 

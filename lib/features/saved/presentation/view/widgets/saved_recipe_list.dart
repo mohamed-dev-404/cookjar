@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cookjar/core/routes/routes.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:cookjar/features/saved/presentation/view/widgets/saved_recipe_card.dart';
 import 'package:go_router/go_router.dart';
 

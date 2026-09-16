@@ -1,7 +1,7 @@
 import 'package:cookjar/core/errors/exceptions/cache_exception.dart';
 import 'package:cookjar/core/errors/models/error_model.dart';
 import 'package:cookjar/core/services/cache/hive/hive_service.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 
 abstract class SavedLocalDataSource {
   Future<void> saveRecipe(RecipeModel recipe);

@@ -6,8 +6,6 @@ import 'package:cookjar/core/widgets/buttons/main_button.dart';
 import 'package:cookjar/core/widgets/inputs/app_text_form_field.dart';
 import 'package:cookjar/core/widgets/inputs/password_text_form_field.dart';
 import 'package:cookjar/features/auth/presentation/widgets/auth_bottom_text.dart';
-import 'package:cookjar/features/auth/presentation/widgets/auth_divider.dart';
-import 'package:cookjar/features/auth/presentation/widgets/social_login_buttons.dart';
 import 'package:cookjar/features/auth/presentation/register/view_model/register_cubit.dart';
 import 'package:cookjar/features/auth/presentation/register/view_model/register_state.dart';
 import 'package:flutter/material.dart';
@@ -130,12 +128,6 @@ class _RegisterFormState extends State<RegisterForm> {
               ),
 
               const Gap(28),
-
-              const AuthDivider(text: 'or register with'),
-
-              const Gap(20),
-
-              const SocialLoginButtons(),
 
               const Gap(24),
 

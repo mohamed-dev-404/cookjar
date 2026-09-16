@@ -12,7 +12,7 @@ import 'package:cookjar/features/splash/splash.dart';
 import 'package:cookjar/features/profile/data/models/profile_model.dart';
 import 'package:cookjar/features/profile/presentation/view/edit_profile_view.dart';
 import 'package:cookjar/features/profile/presentation/view_model/profile_cubit.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';

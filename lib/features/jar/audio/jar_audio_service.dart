@@ -9,7 +9,7 @@
 // replace asset paths.
 
 import 'package:audioplayers/audioplayers.dart';
-import '../const/jar_constants.dart';
+import '../presentation/view/widgets/jar_constants.dart';
 
 /// Manages audio playback for the jar's animation phases.
 ///

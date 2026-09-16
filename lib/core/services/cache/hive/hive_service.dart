@@ -18,7 +18,7 @@
 
 import 'package:hive_flutter/hive_flutter.dart';
 
-import '../../../../features/recipe_details/data/models/recipe_details_model.dart';
+import '../../../models/recipe_details_model.dart';
 import '../../../logging/app_logger.dart';
 import 'hive_keys.dart';
 

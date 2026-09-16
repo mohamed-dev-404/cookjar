@@ -8,7 +8,7 @@
 // Migration note: `revealingQuote` → `revealingRecipe`,
 //                 `showingQuote`   → `showingRecipe`.
 
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 
 /// Represents the high-level phases of the jar's animation and recipe lifecycle.
 enum JarStatus {

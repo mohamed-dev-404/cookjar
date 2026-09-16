@@ -1,5 +1,5 @@
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
-import 'package:cookjar/features/saved/data/repositories/saved_repo.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
+import 'package:cookjar/features/saved/data/repos/saved_repo.dart';
 import 'package:cookjar/features/saved/presentation/view_model/add_saved_recipe_cubit/add_saved_recipe_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

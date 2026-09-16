@@ -4,7 +4,7 @@ import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:cookjar/core/utils/themes/app_radius.dart';
 import 'package:cookjar/core/utils/themes/app_spacing.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 
 class SavedRecipeCard extends StatelessWidget {
   const SavedRecipeCard({

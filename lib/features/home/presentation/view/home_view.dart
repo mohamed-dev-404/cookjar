@@ -1,7 +1,6 @@
 import 'package:cookjar/core/di/service_locator.dart';
 import 'package:cookjar/core/routes/routes.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
-import 'package:cookjar/core/widgets/buttons/main_button.dart';
 import 'package:cookjar/features/home/presentation/view/widgets/home_header.dart';
 import 'package:cookjar/features/home/presentation/view/widgets/home_welcome_text.dart';
 import 'package:cookjar/features/jar/data/repo/recipe_repo.dart';

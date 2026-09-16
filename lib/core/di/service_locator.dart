@@ -16,9 +16,9 @@ import 'package:cookjar/features/recipe_details/data/data_source/recipe_details_
 import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo.dart';
 import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo_impl.dart';
 import 'package:cookjar/features/recipe_details/presentation/view_model/recipe_details_cubit.dart';
-import 'package:cookjar/features/saved/data/data_sources/local/saved_local_data_source.dart';
-import 'package:cookjar/features/saved/data/repositories/saved_repo.dart';
-import 'package:cookjar/features/saved/data/repositories/saved_repo_impl.dart';
+import 'package:cookjar/features/saved/data/data_sources/saved_local_data_source.dart';
+import 'package:cookjar/features/saved/data/repos/saved_repo.dart';
+import 'package:cookjar/features/saved/data/repos/saved_repo_impl.dart';
 import 'package:cookjar/features/saved/presentation/view_model/add_saved_recipe_cubit/add_saved_recipe_cubit.dart';
 import 'package:cookjar/features/saved/presentation/view_model/saved_recipes_cubit/saved_recipes_cubit.dart';
 import 'package:cookjar/features/jar/data/repo/recipe_repo.dart';

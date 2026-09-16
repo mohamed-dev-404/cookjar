@@ -7,10 +7,10 @@
 // When the [recipe] is null (e.g., during the initial animation before the API
 // returns), the card displays a skeleton placeholder to maintain visual stability.
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:flutter/material.dart';
 
-import '../../../const/jar_constants.dart';
+import 'jar_constants.dart';
 
 /// A modern recipe card displaying the image and name of the selected recipe.
 class RecipeResultCard extends StatefulWidget {

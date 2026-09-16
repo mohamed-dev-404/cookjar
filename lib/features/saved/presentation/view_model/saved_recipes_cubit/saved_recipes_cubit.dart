@@ -1,4 +1,4 @@
-import 'package:cookjar/features/saved/data/repositories/saved_repo.dart';
+import 'package:cookjar/features/saved/data/repos/saved_repo.dart';
 import 'package:cookjar/features/saved/presentation/view_model/saved_recipes_cubit/saved_recipes_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

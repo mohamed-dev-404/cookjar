@@ -5,7 +5,7 @@
 // It uses gradients and shadows to simulate a 3D cork texture.
 
 import 'package:flutter/material.dart';
-import '../../../const/jar_constants.dart';
+import 'jar_constants.dart';
 
 class JarLid extends StatelessWidget {
   const JarLid({super.key});

@@ -1,7 +1,7 @@
 import 'package:cookjar/core/errors/exceptions/cache_exception.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
-import 'package:cookjar/features/saved/data/data_sources/local/saved_local_data_source.dart';
-import 'package:cookjar/features/saved/data/repositories/saved_repo.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
+import 'package:cookjar/features/saved/data/data_sources/saved_local_data_source.dart';
+import 'package:cookjar/features/saved/data/repos/saved_repo.dart';
 import 'package:dartz/dartz.dart';
 
 class SavedRepoImpl implements SavedRepo {

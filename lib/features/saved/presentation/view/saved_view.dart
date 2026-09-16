@@ -3,7 +3,7 @@ import 'package:cookjar/core/routes/routes.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
 import 'package:cookjar/core/widgets/empty_state_widget.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:cookjar/features/saved/presentation/view/widgets/saved_app_bar.dart';
 import 'package:cookjar/features/saved/presentation/view/widgets/saved_recipe_card.dart';
 import 'package:cookjar/features/saved/presentation/view_model/saved_recipes_cubit/saved_recipes_cubit.dart';

@@ -1,5 +1,5 @@
 import 'package:cookjar/core/errors/exceptions/app_exception.dart';
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:cookjar/features/recipe_details/data/repos/recipe_details_repo.dart';
 import 'package:cookjar/features/recipe_details/presentation/view_model/recipe_details_state.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

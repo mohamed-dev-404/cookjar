@@ -1,4 +1,4 @@
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:dartz/dartz.dart';
 
 abstract class SavedRepo {

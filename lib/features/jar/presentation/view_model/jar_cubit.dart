@@ -24,7 +24,7 @@
 
 import 'dart:math';
 
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../data/repo/recipe_repo.dart';

@@ -10,7 +10,7 @@
 
 import 'dart:math';
 import 'package:flutter/material.dart';
-import '../../../const/jar_constants.dart';
+import 'jar_constants.dart';
 
 /// Holds the deterministic per-paper visual properties, computed once.
 class _PaperData {

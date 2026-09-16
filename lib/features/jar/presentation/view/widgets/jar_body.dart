@@ -5,7 +5,7 @@
 // It uses a CustomPainter to achieve a 3D glass look with highlights.
 
 import 'package:flutter/material.dart';
-import '../../../const/jar_constants.dart';
+import 'jar_constants.dart';
 
 class JarBody extends StatelessWidget {
   const JarBody({super.key});

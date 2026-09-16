@@ -30,14 +30,14 @@
 // Audio is triggered at each semantic phase boundary by the orchestration
 // layer. Visual widgets never import the audio service.
 
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../audio/jar_audio_service.dart';
-import '../../const/jar_constants.dart';
-import '../cubit/jar_cubit.dart';
-import '../cubit/jar_state.dart';
+import 'widgets/jar_constants.dart';
+import '../view_model/jar_cubit.dart';
+import '../view_model/jar_state.dart';
 import '../../data/repo/recipe_repo.dart';
 import 'widgets/jar_body.dart';
 import 'widgets/jar_contents.dart';

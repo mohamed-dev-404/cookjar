@@ -8,7 +8,7 @@
 // returning them as a typed result. Random selection from the list is the
 // responsibility of [JarCubit].
 
-import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
+import 'package:cookjar/core/models/recipe_details_model.dart';
 import 'package:dartz/dartz.dart';
 
 /// Provides access to the recipe data source.

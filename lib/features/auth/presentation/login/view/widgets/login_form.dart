@@ -6,8 +6,6 @@ import 'package:cookjar/core/widgets/buttons/main_button.dart';
 import 'package:cookjar/core/widgets/inputs/app_text_form_field.dart';
 import 'package:cookjar/core/widgets/inputs/password_text_form_field.dart';
 import 'package:cookjar/features/auth/presentation/widgets/auth_bottom_text.dart';
-import 'package:cookjar/features/auth/presentation/widgets/auth_divider.dart';
-import 'package:cookjar/features/auth/presentation/widgets/social_login_buttons.dart';
 import 'package:cookjar/features/auth/presentation/login/view_model/login_cubit.dart';
 import 'package:cookjar/features/auth/presentation/login/view_model/login_state.dart';
 import 'package:flutter/material.dart';
@@ -102,21 +100,7 @@ class _LoginFormState extends State<LoginForm> {
 
               const Gap(20),
 
-              // Forgot password
-              TextButton(
-                onPressed: () {
-                  // Forgot password
-                },
-                child: Text('Forgot Password?', style: AppStyles.medium16),
-              ),
-
               const Gap(35),
-
-              const AuthDivider(text: 'or login with'),
-
-              const Gap(20),
-
-              const SocialLoginButtons(),
 
               const Gap(28),
 
