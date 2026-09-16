@@ -13,7 +13,7 @@ import 'package:flutter/material.dart';
 import '../../../const/jar_constants.dart';
 
 /// A modern recipe card displaying the image and name of the selected recipe.
-class RecipeResultCard extends StatelessWidget {
+class RecipeResultCard extends StatefulWidget {
   /// The selected recipe to display, or null if generation is still pending.
   final RecipeModel? recipe;
 
@@ -39,9 +39,33 @@ class RecipeResultCard extends StatelessWidget {
   });
 
   @override
+  State<RecipeResultCard> createState() => _RecipeResultCardState();
+}
+
+class _RecipeResultCardState extends State<RecipeResultCard> {
+  bool _isFavorited = false;
+
+  @override
+  void didUpdateWidget(RecipeResultCard oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (widget.recipe?.id != oldWidget.recipe?.id) {
+      _isFavorited = false;
+    }
+  }
+
+  void _handleFavorite() {
+    if (!_isFavorited) {
+      setState(() {
+        _isFavorited = true;
+      });
+      widget.onAddToFavorite?.call();
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Directionality(
-      textDirection: isRtl ? TextDirection.rtl : TextDirection.ltr,
+      textDirection: widget.isRtl ? TextDirection.rtl : TextDirection.ltr,
       child: Container(
         width: JarConstants.resultCardWidth,
         decoration: BoxDecoration(
@@ -67,10 +91,11 @@ class RecipeResultCard extends StatelessWidget {
   }
 
   Widget _buildImage(BuildContext context) {
-    final Widget imageWidget = recipe == null || recipe!.image.isEmpty
+    final Widget imageWidget =
+        widget.recipe == null || widget.recipe!.image.isEmpty
         ? _buildPlaceholder()
         : CachedNetworkImage(
-            imageUrl: recipe!.image,
+            imageUrl: widget.recipe!.image,
             height: JarConstants.resultCardImageHeight,
             fit: BoxFit.cover,
             placeholder: (context, url) => _buildPlaceholder(),
@@ -113,11 +138,11 @@ class RecipeResultCard extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          if (recipe == null)
+          if (widget.recipe == null)
             _buildNameSkeleton()
           else
             Text(
-              recipe!.name,
+              widget.recipe!.name,
               style: const TextStyle(
                 fontSize: JarConstants.resultCardNameFontSize,
                 fontWeight: FontWeight.bold,
@@ -125,12 +150,12 @@ class RecipeResultCard extends StatelessWidget {
               ),
               maxLines: 2,
               overflow: TextOverflow.ellipsis,
-              textAlign: isRtl ? TextAlign.right : TextAlign.left,
+              textAlign: widget.isRtl ? TextAlign.right : TextAlign.left,
             ),
           const SizedBox(height: 24.0),
-          if (recipe != null) ...[
+          if (widget.recipe != null) ...[
             ElevatedButton.icon(
-              onPressed: onCookNow,
+              onPressed: widget.onCookNow,
               icon: const Icon(Icons.restaurant_menu),
               label: const Text('Cook it now'),
               style: ElevatedButton.styleFrom(
@@ -149,14 +174,22 @@ class RecipeResultCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: OutlinedButton.icon(
-                    onPressed: onAddToFavorite,
-                    icon: const Icon(Icons.favorite_border),
-                    label: const Text('Favorite'),
+                    onPressed: widget.onAddToFavorite == null
+                        ? null
+                        : _handleFavorite,
+                    icon: Icon(
+                      _isFavorited ? Icons.favorite : Icons.favorite_border,
+                    ),
+                    label: Text(_isFavorited ? 'Favorited' : 'Favorite'),
                     style: OutlinedButton.styleFrom(
                       minimumSize: const Size.fromHeight(48),
-                      foregroundColor: JarConstants.resultCardNameColor,
-                      side: const BorderSide(
-                        color: JarConstants.resultCardPlaceholderColor,
+                      foregroundColor: _isFavorited
+                          ? Colors.red
+                          : JarConstants.resultCardNameColor,
+                      side: BorderSide(
+                        color: _isFavorited
+                            ? Colors.red
+                            : JarConstants.resultCardPlaceholderColor,
                       ),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(
@@ -169,7 +202,7 @@ class RecipeResultCard extends StatelessWidget {
                 const SizedBox(width: 12.0),
                 Expanded(
                   child: OutlinedButton.icon(
-                    onPressed: onReshake,
+                    onPressed: widget.onReshake,
                     icon: const Icon(Icons.refresh),
                     label: const Text('Re-shake'),
                     style: OutlinedButton.styleFrom(

@@ -18,4 +18,18 @@ class SavedRecipesCubit extends Cubit<SavedRecipesState> {
       (recipes) => emit(SavedRecipesSuccess(recipes: recipes)),
     );
   }
+
+  Future<void> removeRecipe(int recipeId) async {
+    // We don't emit loading state here to keep the list visible in the background
+    // If you want to show a loading overlay, you could emit a specific state
+    final result = await savedRepo.removeRecipe(recipeId);
+
+    result.fold(
+      (errorMessage) => emit(SavedRecipesFailure(errorMessage: errorMessage)),
+      (_) {
+        // After successful removal, fetch the updated list
+        getSavedRecipes();
+      },
+    );
+  }
 }

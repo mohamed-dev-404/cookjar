@@ -32,4 +32,16 @@ class SavedRepoImpl implements SavedRepo {
       return Left(e.toString());
     }
   }
+
+  @override
+  Future<Either<String, void>> removeRecipe(int recipeId) async {
+    try {
+      await localDataSource.removeRecipe(recipeId);
+      return const Right(null);
+    } on CacheException catch (e) {
+      return Left(e.errorModel.errorMessage);
+    } catch (e) {
+      return Left(e.toString());
+    }
+  }
 }

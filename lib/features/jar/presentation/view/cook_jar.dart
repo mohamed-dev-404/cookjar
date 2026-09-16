@@ -621,7 +621,7 @@ class _AnimatedCookJarState extends State<AnimatedCookJar>
           animation: _paperController,
           child: GestureDetector(
             onTap: _handlePaperTap,
-            behavior: HitTestBehavior.opaque,
+            behavior: HitTestBehavior.deferToChild,
             child: _buildPaperWithRecipeReveal(),
           ),
           builder: (context, child) {

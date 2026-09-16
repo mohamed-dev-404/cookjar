@@ -7,6 +7,7 @@ abstract class SavedLocalDataSource {
   Future<void> saveRecipe(RecipeModel recipe);
   Future<List<RecipeModel>> getSavedRecipes();
   bool containsRecipe(int id);
+  Future<void> removeRecipe(int id);
 }
 
 class SavedLocalDataSourceImpl implements SavedLocalDataSource {
@@ -48,6 +49,19 @@ class SavedLocalDataSourceImpl implements SavedLocalDataSource {
       throw CacheException(
         errorModel: ErrorModel(
           errorMessage: 'Failed to check recipe in local storage: $e',
+        ),
+      );
+    }
+  }
+
+  @override
+  Future<void> removeRecipe(int id) async {
+    try {
+      await hiveService.delete(hiveService.recipesBox, id);
+    } catch (e) {
+      throw CacheException(
+        errorModel: ErrorModel(
+          errorMessage: 'Failed to remove recipe from local storage: $e',
         ),
       );
     }

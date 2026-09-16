@@ -4,7 +4,6 @@ import 'package:cookjar/core/utils/themes/app_spacing.dart';
 import 'package:cookjar/core/widgets/animated_loading_widget.dart';
 import 'package:cookjar/core/widgets/empty_state_widget.dart';
 import 'package:cookjar/features/recipe_details/presentation/view/widgets/collapsible_section.dart';
-import 'package:cookjar/features/recipe_details/presentation/view/widgets/favorite_button.dart';
 import 'package:cookjar/features/recipe_details/presentation/view/widgets/ingredients_list.dart';
 import 'package:cookjar/features/recipe_details/presentation/view/widgets/instructions_list.dart';
 import 'package:cookjar/features/recipe_details/presentation/view/widgets/recipe_hero_image.dart';
@@ -39,7 +38,7 @@ class RecipeDetailsView extends StatelessWidget {
                 subtitle: errorMessage,
               ),
             ),
-            RecipeDetailsLoaded(:final recipe, :final isFavorite) => Stack(
+            RecipeDetailsLoaded(:final recipe) => Stack(
               children: [
                 SingleChildScrollView(
                   padding: const EdgeInsets.only(bottom: 100),
@@ -85,16 +84,6 @@ class RecipeDetailsView extends StatelessWidget {
                         ),
                       ),
                     ],
-                  ),
-                ),
-                Positioned(
-                  left: AppSpacing.xl,
-                  right: AppSpacing.xl,
-                  bottom: AppSpacing.xl,
-                  child: FavoriteButton(
-                    isFavorite: isFavorite,
-                    onPressed: () =>
-                        context.read<RecipeDetailsCubit>().toggleFavorite(),
                   ),
                 ),
               ],

@@ -13,4 +13,10 @@ abstract class SavedRepo {
   /// Returns [Right(recipes)] on success (may be an empty list).
   /// Returns [Left(errorMessage)] when the operation fails.
   Future<Either<String, List<RecipeModel>>> getSavedRecipes();
+
+  /// Removes [recipeId] from local storage.
+  ///
+  /// Returns [Right(null)] on success.
+  /// Returns [Left(errorMessage)] when the operation fails.
+  Future<Either<String, void>> removeRecipe(int recipeId);
 }

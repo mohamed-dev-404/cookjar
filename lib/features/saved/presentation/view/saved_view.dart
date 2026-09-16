@@ -2,6 +2,7 @@ import 'package:cookjar/core/di/service_locator.dart';
 import 'package:cookjar/core/routes/routes.dart';
 import 'package:cookjar/core/utils/colors/app_colors.dart';
 import 'package:cookjar/core/utils/styles/app_styles.dart';
+import 'package:cookjar/core/widgets/empty_state_widget.dart';
 import 'package:cookjar/features/recipe_details/data/models/recipe_details_model.dart';
 import 'package:cookjar/features/saved/presentation/view/widgets/saved_app_bar.dart';
 import 'package:cookjar/features/saved/presentation/view/widgets/saved_recipe_card.dart';
@@ -73,33 +74,7 @@ class SavedView extends StatelessWidget {
       ),
       SavedRecipesSuccess(:final List<RecipeModel> recipes)
           when recipes.isEmpty =>
-        Center(
-          child: Padding(
-            padding: const EdgeInsets.all(32),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(
-                  Icons.favorite_border_rounded,
-                  size: 80,
-                  color: AppColors.warmCoral.withValues(alpha: 0.4),
-                ),
-                const SizedBox(height: 20),
-                Text(
-                  'No saved recipes yet',
-                  style: AppStyles.bold20,
-                  textAlign: TextAlign.center,
-                ),
-                const SizedBox(height: 8),
-                Text(
-                  'Shake your jar and tap ♥ to save a recipe here.',
-                  style: AppStyles.regular14,
-                  textAlign: TextAlign.center,
-                ),
-              ],
-            ),
-          ),
-        ),
+        EmptyStateWidget(),
       SavedRecipesSuccess(:final List<RecipeModel> recipes) => RefreshIndicator(
         onRefresh: () => context.read<SavedRecipesCubit>().getSavedRecipes(),
         child: ListView.separated(
@@ -113,7 +88,33 @@ class SavedView extends StatelessWidget {
               isFavorite: true,
               onTap: () => context.push(Routes.recipeDetails, extra: recipe),
               onFavoriteTap: () {
-                // Remove-from-favorites — not implemented in this task.
+                showDialog(
+                  context: context,
+                  builder: (dialogContext) => AlertDialog(
+                    title: const Text('Remove from favorites?'),
+                    content: const Text(
+                      'Are you sure you want to remove this recipe from your favorites?',
+                    ),
+                    actions: [
+                      TextButton(
+                        onPressed: () => Navigator.of(dialogContext).pop(),
+                        child: const Text('Cancel'),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          Navigator.of(dialogContext).pop();
+                          context.read<SavedRecipesCubit>().removeRecipe(
+                            recipe.id,
+                          );
+                        },
+                        child: const Text(
+                          'Remove',
+                          style: TextStyle(color: Colors.red),
+                        ),
+                      ),
+                    ],
+                  ),
+                );
               },
             );
           },
