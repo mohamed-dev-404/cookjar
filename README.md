@@ -47,13 +47,6 @@ CookJar's look is warm, playful, and food-first — built around a jar you can a
 
 **Typography:** [Poppins](https://fonts.google.com/specimen/Poppins) for headings, [Inter](https://fonts.google.com/specimen/Inter) for body text.
 
-## 📱 Preview
-
-<p align="center">
-  <img src="docs/readme/recipe-detail-preview.png" alt="CookJar Recipe Details screen" width="280">
-</p>
-
-<!-- 🖼️ TODO: drop your own in-app screenshots here, e.g.: -->
 <!--
 | Home | Shake the Jar | Recipe Details | Saved |
 |---|---|---|---|
